@@ -367,6 +367,8 @@ def get_politician_filters():
             filters[f] = filter
     return filters
 
+"Stringgg"
+
 
 def get_company_filters():
     filter_list = [
