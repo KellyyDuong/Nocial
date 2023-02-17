@@ -170,6 +170,7 @@ def get_id(table, id):
 print("Hiiii")
 priya = "line 170"
 
+print("hii again")
 def get_ids(table):
     connection = mysql.connector.connect(**config)
     cursor = connection.cursor(dictionary=True)
