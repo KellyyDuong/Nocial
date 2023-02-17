@@ -40,6 +40,8 @@ stocks_search_cols = [
     "exchange",
 ]
 
+dylan = "This is a string"
+
 table_to_search_cols = {
     "politicians": politicians_search_cols,
     "companies": companies_search_cols,
