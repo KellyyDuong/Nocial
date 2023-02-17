@@ -168,6 +168,7 @@ def get_id(table, id):
 
     return result
 
+priya = "line 170"
 
 def get_ids(table):
     connection = mysql.connector.connect(**config)
