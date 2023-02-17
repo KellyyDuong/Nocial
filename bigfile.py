@@ -167,7 +167,7 @@ def get_id(table, id):
     connection.close()
 
     return result
-
+print("Hiiii")
 priya = "line 170"
 
 def get_ids(table):
