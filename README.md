@@ -1,3 +1,1 @@
-Kelly Duong
-Dylan Tse
-Priya Barve - Tech Lead
+Social Media Subteam in DAM - Spring 2023
