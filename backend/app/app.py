@@ -53,7 +53,24 @@ def calculateScore(userName) -> int:
     connection.close()
     return score
 
-    
+# createImageFilePath
+# inputs: userName
+# outputs: generate String file path based on userName
+# note: a more ideal solution would to integrate a cloud service like AWS and have images there
+#       to download as necessary
+def createImageFilePath(userName) -> str:
+    connection = connect()
+    cursor = connection.cursor()
+
+    cursor.execute(f"SELECT userName, pfp FROM scores WHERE userName = '{userName}'")
+    pfpMap = [{userName: pfpName} for (userName, pfpName) in cursor] 
+    pfpPath = f"/assets/{pfpMap[0][userName]}.png".strip()
+
+    cursor.close()
+    connection.close()
+    return pfpPath
+
+
 @app.route('/getscore/<userName>')
 def getScore(userName) -> str:
     return json.dumps(scores_byuser(userName))
@@ -65,15 +82,20 @@ def updateScore(userName):
 
     score = calculateScore(userName)
     cursor.execute(f"UPDATE scores SET score = '{score}' WHERE userName = '{userName}' ")
+    connection.commit()
     cursor.execute(f"SELECT userName, score FROM scores WHERE userName = '{userName}'")
     results = [{userName: score} for (userName, score) in cursor]
-    
-    connection.commit()
     
     cursor.close()
     connection.close()
     return json.dumps(f'score: {score}, results: {results}')
 
+@app.route('/getpfp/<userName>')
+def getPfp(userName):
+    connection = connect()
+    cursor = connection.cursor()
+    
+    return createImageFilePath(userName)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
