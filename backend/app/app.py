@@ -97,6 +97,7 @@ def getPfp(userName):
     cursor = connection.cursor()
     
     return createImageFilePath(userName)
+    # yes
 
 
 if __name__ == '__main__':
