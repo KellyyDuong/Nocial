@@ -53,6 +53,7 @@ def calculateScore(userName) -> int:
     connection.close()
     return score
 
+
 # createImageFilePath
 # inputs: userName
 # outputs: generate String file path based on userName
@@ -96,6 +97,7 @@ def getPfp(userName):
     cursor = connection.cursor()
     
     return createImageFilePath(userName)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
