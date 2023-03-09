@@ -1,4 +1,4 @@
-package com.nocial.ui.notifications;
+package com.nocial.ui.feed;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.nocial.databinding.FragmentNotificationsBinding;
+import com.nocial.databinding.FragmentFeedBinding;
 
-public class NotificationsFragment extends Fragment {
+public class FeedFragment extends Fragment {
 
-    private FragmentNotificationsBinding binding;
+    private FragmentFeedBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        NotificationsViewModel notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
+        FeedViewModel feedViewModel =
+                new ViewModelProvider(this).get(FeedViewModel.class);
 
-        binding = FragmentNotificationsBinding.inflate(inflater, container, false);
+        binding = FragmentFeedBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textNotifications;
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textFeed;
+        feedViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
