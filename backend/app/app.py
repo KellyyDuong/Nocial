@@ -1,5 +1,5 @@
 from typing import List, Dict
-from flask import Flask
+from flask import Flask, jsonify
 import mysql.connector
 import json
 
@@ -23,31 +23,17 @@ def connect():
     return connection
 
 
-# scores_byuser
-# inputs: userName
-# outputs: returns list with a map containing respective score for a given user
-def scores_byuser(userName):
-    connection = connect()
-    cursor = connection.cursor()
-
-    cursor.execute(f"SELECT userName, score FROM scores WHERE userName = '{userName}'")
-    results = [{userName: score} for (userName, score) in cursor]
-    cursor.close()
-    connection.close()
-    return results
-
-
 # calculateScore
 # inputs: userName
-# outputs: convert time String in format H:M:S to seconds -> returns integer 
+# outputs: convert time String in format H:M:S to minutes -> returns integer 
 def calculateScore(userName) -> int:
     connection = connect()
     cursor = connection.cursor()
-    cursor.execute(f"SELECT userName, dailyScreenTime FROM scores WHERE userName = '{userName}'")
+    cursor.execute(f"SELECT userName, dailyScreenTime FROM users WHERE userName = '{userName}'")
     results = [{userName: screenTime} for (userName, screenTime) in cursor]
 
     score = time.strptime( results[0][userName].split(',')[0], '%H:%M:%S' )
-    score = int(datetime.timedelta(hours=score.tm_hour, minutes=score.tm_min, seconds=score.tm_sec).total_seconds())
+    score = int(datetime.timedelta(hours=score.tm_hour, minutes=score.tm_min, seconds=score.tm_sec).total_seconds() / 60)
 
     cursor.close()
     connection.close()
@@ -63,7 +49,7 @@ def createImageFilePath(userName) -> str:
     connection = connect()
     cursor = connection.cursor()
 
-    cursor.execute(f"SELECT userName, pfp FROM scores WHERE userName = '{userName}'")
+    cursor.execute(f"SELECT userName, pfp FROM users WHERE userName = '{userName}'")
     pfpMap = [{userName: pfpName} for (userName, pfpName) in cursor] 
     pfpPath = f"/assets/{pfpMap[0][userName]}.png".strip()
 
@@ -72,9 +58,23 @@ def createImageFilePath(userName) -> str:
     return pfpPath
 
 
-@app.route('/getscore/<userName>')
-def getScore(userName) -> str:
-    return json.dumps(scores_byuser(userName))
+@app.route('/')
+def main():
+    return "Nocial"
+
+
+@app.route('/<userName>')
+def profile(userName):
+    connection = connect()
+    cursor = connection.cursor()
+
+    cursor.execute(f"SELECT * FROM users WHERE userName = '{userName}'")
+    userInfo = list(cursor.fetchone())
+
+    cursor.close()
+    connection.close()
+    return jsonify(userInfo) # returns list contents as JSON response -> list of Strings accessible
+
 
 @app.route('/updateScore/<userName>')
 def updateScore(userName):
@@ -82,22 +82,19 @@ def updateScore(userName):
     cursor = connection.cursor()
 
     score = calculateScore(userName)
-    cursor.execute(f"UPDATE scores SET score = '{score}' WHERE userName = '{userName}' ")
+    cursor.execute(f"UPDATE users SET score = '{score}' WHERE userName = '{userName}' ")
     connection.commit()
-    cursor.execute(f"SELECT userName, score FROM scores WHERE userName = '{userName}'")
+    cursor.execute(f"SELECT userName, score FROM users WHERE userName = '{userName}'")
     results = [{userName: score} for (userName, score) in cursor]
     
     cursor.close()
     connection.close()
     return json.dumps(f'score: {score}, results: {results}')
 
+
 @app.route('/getpfp/<userName>')
 def getPfp(userName):
-    connection = connect()
-    cursor = connection.cursor()
-    
     return createImageFilePath(userName)
-    # yes
 
 
 if __name__ == '__main__':
