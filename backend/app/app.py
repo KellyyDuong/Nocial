@@ -1,5 +1,5 @@
 from typing import List, Dict
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 import mysql.connector
 import json
 
@@ -89,13 +89,20 @@ def updateScore(userName):
     
     cursor.close()
     connection.close()
-    return json.dumps(f'score: {score}, results: {results}')
+    return results[0][userName]
 
 
 @app.route('/getpfp/<userName>')
 def getPfp(userName):
     return createImageFilePath(userName)
 
+
+@app.route('/getWeeklyStats/<userName>', methods=['GET', 'POST'])
+def getWeeklyStats(userName):
+    if request.method == 'POST':
+        request.getJSON() # get weekly usageStatsManagerData -> clean it up 
+    else:
+        return jsonify() # send cleaned up data to app
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
