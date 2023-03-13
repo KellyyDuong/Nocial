@@ -5,16 +5,20 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import android.widget.ImageView;
 
+
 public class ProfileViewModel extends ViewModel {
 
-    private final MutableLiveData<String> mText;
+    private MutableLiveData<String> mText = new MutableLiveData<>();
 
-    public ProfileViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is profile fragment");
+
+//    public ProfileViewModel() {
+//    }
+
+    public MutableLiveData<String> getTextLiveData() {
+        return mText;
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public void setText(String text) {
+        mText.postValue(text);
     }
 }
