@@ -8,17 +8,29 @@ import android.widget.ImageView;
 
 public class ProfileViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText = new MutableLiveData<>();
+    private MutableLiveData<String> mText;
+    private MutableLiveData<String> mAppUsage;
 
+    public ProfileViewModel() {
+        mText= new MutableLiveData<>();
+        mAppUsage = new MutableLiveData<>();
+    }
 
-//    public ProfileViewModel() {
-//    }
-
-    public MutableLiveData<String> getTextLiveData() {
+    public MutableLiveData<String> getUserTextLiveData() {
         return mText;
     }
 
-    public void setText(String text) {
+    public MutableLiveData<String> getAppUsageLiveData() {
+        return mAppUsage;
+    }
+
+    public void setUserText(String text) {
         mText.postValue(text);
     }
+
+    public void setmAppUsage(String text) {
+        mAppUsage.postValue(text);
+    }
+
+
 }
