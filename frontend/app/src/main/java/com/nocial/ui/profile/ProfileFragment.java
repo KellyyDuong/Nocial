@@ -66,17 +66,20 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        if (!checkUsageStatsPermission()){
+        if (!checkUsageStatsPermission()) {
             requestUsageStatsPermission();
         } else {
             showAppUsage();
         }
 
-//        makeGetRequest();
+        makeGetRequest();
 
         return root;
     }
 
+    /**
+     * Connects to Flask server and displays user data in TextView in ProfileViewModel
+     */
     private void makeGetRequest() {
         OkHttpClient client = new OkHttpClient();
 
@@ -92,7 +95,7 @@ public class ProfileFragment extends Fragment {
 
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                if (!response.isSuccessful()){
+                if (!response.isSuccessful()) {
                     throw new IOException("Unexpected code:" + response);
                 }
 
@@ -103,17 +106,28 @@ public class ProfileFragment extends Fragment {
     }
 
 
-    private boolean checkUsageStatsPermission(){
+    /**
+     * Returns boolean value for whether or not app has permission to gather data from API
+     *
+     * @return the permission state
+     */
+    private boolean checkUsageStatsPermission() {
         UsageStatsManager usageStatsManager = (UsageStatsManager) getContext().getSystemService(Context.USAGE_STATS_SERVICE);
         return usageStatsManager != null;
     }
 
-    private void requestUsageStatsPermission(){
+    /**
+     * Requests permission from Android OS to gather app usage data
+     */
+    private void requestUsageStatsPermission() {
         Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
         startActivity(intent);
     }
 
-    private void showAppUsage(){
+    /**
+     * Sets String contents in ViewModel to display package name and seconds in foreground used
+     */
+    private void showAppUsage() {
 
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, 0);
@@ -133,7 +147,7 @@ public class ProfileFragment extends Fragment {
         // snapchat: com.snapchat.android
         // twitter: com.twitter.android
         // reddit: com.reddit.android
-        for (UsageStats usageStats : usageStatsList){
+        for (UsageStats usageStats : usageStatsList) {
             if (usageStats.getPackageName().equals("com.android.chrome") || usageStats.getPackageName().equals("com.google.android.youtube")) {
                 stringBuilder.append(usageStats.getPackageName()).append(": ").append(usageStats.getTotalTimeInForeground() / 1000).append(" seconds\n");
             }
@@ -142,17 +156,9 @@ public class ProfileFragment extends Fragment {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults){
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == 1 && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             showAppUsage();
         }
     }
-
-
-
-//    @Override
-//    public void onDestroyView() {
-//        super.onDestroyView();
-//        binding = null;
-//    }
 }
