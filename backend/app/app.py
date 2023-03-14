@@ -97,12 +97,5 @@ def getPfp(userName):
     return createImageFilePath(userName)
 
 
-# @app.route('/getWeeklyStats/<userName>', methods=['GET', 'POST'])
-# def getWeeklyStats(userName):
-#     if request.method == 'POST':
-#         request.getJSON() # get weekly usageStatsManagerData -> clean it up 
-#     else:
-#         return jsonify() # send cleaned up data to app
-
 if __name__ == '__main__':
     app.run(host='0.0.0.0')

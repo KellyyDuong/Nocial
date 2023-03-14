@@ -24,5 +24,6 @@ People who frequently use social media can use the app “Nocial” to limit the
 
 ### Running Our App 💻
 
+* have Docker Desktop open
 * in our backend folder: docker-compose build -> docker-compose up
 * in Android Studio: run the app
