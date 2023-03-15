@@ -1,7 +1,6 @@
 package com.nocial.ui.profile;
 
-import android.annotation.SuppressLint;
-import android.app.usage.UsageEvents;
+import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.Intent;
 
@@ -15,24 +14,23 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.nocial.R;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
-import android.widget.Toast;
 
 public class ProfileFragment extends Fragment {
 
@@ -40,6 +38,8 @@ public class ProfileFragment extends Fragment {
     private TextView mAppUsageTextView;
     private ProfileViewModel profileViewModel;
     private String user;
+    final private OkHttpClient client = new OkHttpClient();
+
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -52,21 +52,12 @@ public class ProfileFragment extends Fragment {
 
         user = "dtsela"; // example userName --> get this user's data
 
-        profileViewModel.getUserTextLiveData().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String s) {
-                mTextView.setText(s);
-            }
-        });
+        profileViewModel.getUserTextLiveData().observe(getViewLifecycleOwner(), s -> mTextView.setText(s));
 
-        profileViewModel.getAppUsageLiveData().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String s) {
-                mAppUsageTextView.setText(s);
-            }
-        });
+        profileViewModel.getAppUsageLiveData().observe(getViewLifecycleOwner(), s -> mAppUsageTextView.setText(s));
 
-        if (!checkUsageStatsPermission()) {
+        Context context = requireContext();
+        if (!checkUsageStatsPermission(context)) {
             requestUsageStatsPermission();
         } else {
             showAppUsage();
@@ -81,7 +72,6 @@ public class ProfileFragment extends Fragment {
      * Connects to Flask server and displays user data in TextView in ProfileViewModel
      */
     private void makeGetRequest() {
-        OkHttpClient client = new OkHttpClient();
 
         String userUrl = ("http://10.0.2.2:5000/").concat(user);
         Request request = new Request.Builder().url(userUrl).build();
@@ -108,13 +98,14 @@ public class ProfileFragment extends Fragment {
 
     /**
      * Returns boolean value for whether or not app has permission to gather data from API
-     *
      * @return the permission state
      */
-    private boolean checkUsageStatsPermission() {
-        UsageStatsManager usageStatsManager = (UsageStatsManager) getContext().getSystemService(Context.USAGE_STATS_SERVICE);
-        return usageStatsManager != null;
+    private boolean checkUsageStatsPermission(Context context) {
+        AppOpsManager appOpsManager = (AppOpsManager) context.getSystemService(Context.APP_OPS_SERVICE);
+        int mode = appOpsManager.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, android.os.Process.myUid(), context.getPackageName());
+        return mode == AppOpsManager.MODE_ALLOWED;
     }
+
 
     /**
      * Requests permission from Android OS to gather app usage data
@@ -149,16 +140,28 @@ public class ProfileFragment extends Fragment {
         // reddit: com.reddit.android
         for (UsageStats usageStats : usageStatsList) {
             if (usageStats.getPackageName().equals("com.android.chrome") || usageStats.getPackageName().equals("com.google.android.youtube")) {
-                stringBuilder.append(usageStats.getPackageName()).append(": ").append(usageStats.getTotalTimeInForeground() / 1000).append(" seconds\n");
+                String packageName = (usageStats.getPackageName()).replace("com.", "").replace("google.android", "");
+                stringBuilder.append( packageName ).append(": ").append(usageStats.getTotalTimeInForeground() / 1000).append(" seconds\n");
             }
         }
         profileViewModel.setmAppUsage(stringBuilder.toString());
+
+        RequestBody formBody = new FormBody.Builder().add("userData", stringBuilder.toString()).build();
+        Request request = new Request.Builder().url("http://10.0.2.2:5000/updateTotalScore").post(formBody).build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    throw new IOException("Unexpected code:" + response);
+                }
+            }
+        });
+
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == 1 && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            showAppUsage();
-        }
-    }
 }
