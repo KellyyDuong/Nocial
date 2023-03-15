@@ -1,8 +1,7 @@
 from typing import List, Dict
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 import mysql.connector
 import json
-
 import datetime
 import time
 
@@ -95,6 +94,12 @@ def updateScore(userName):
 @app.route('/getpfp/<userName>')
 def getPfp(userName):
     return createImageFilePath(userName)
+
+@app.route('/updateTotalScore', methods=['POST'])
+def debug():
+    txt = request.form["userData"]
+    print(txt)
+    return "received"
 
 
 if __name__ == '__main__':
