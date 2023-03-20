@@ -57,6 +57,22 @@ def createImageFilePath(userName) -> str:
     return pfpPath
 
 
+# parseTotalScore
+# inputs: text from Java app containing each app and its usage in seconds
+# outputs: an integer sum of all the seconds
+def parseTotalScore(rawText) -> int:
+    times = []
+
+    for line in rawText.split('\n'):
+        line = line.strip()
+        if line:
+            number_str = line.split(':')[-1].strip().split()[0]
+            times.append(int(number_str))
+
+    return sum(times)
+
+
+
 @app.route('/')
 def main():
     return "Nocial"
@@ -81,9 +97,9 @@ def updateScore(userName):
     cursor = connection.cursor()
 
     score = calculateScore(userName)
-    cursor.execute(f"UPDATE users SET score = '{score}' WHERE userName = '{userName}' ")
+    cursor.execute(f"UPDATE users SET dailyScore = '{score}' WHERE userName = '{userName}' ")
     connection.commit()
-    cursor.execute(f"SELECT userName, score FROM users WHERE userName = '{userName}'")
+    cursor.execute(f"SELECT userName, dailyScore FROM users WHERE userName = '{userName}'")
     results = [{userName: score} for (userName, score) in cursor]
     
     cursor.close()
@@ -95,11 +111,23 @@ def updateScore(userName):
 def getPfp(userName):
     return createImageFilePath(userName)
 
-@app.route('/updateTotalScore', methods=['POST'])
-def debug():
+
+@app.route('/updateTotalScore/<userName>', methods=['GET', 'POST'])
+def debug(userName):
+    connection = connect()
+    cursor = connection.cursor()
+
+    # POST request
     txt = request.form["userData"]
-    print(txt)
-    return "received"
+    totalScore = parseTotalScore(txt)
+    
+    cursor.execute(f"UPDATE users SET totalScore = '{totalScore}' WHERE userName = '{userName}'")
+    connection.commit()
+    
+    cursor.close()
+    connection.close()
+    # sends it to the frontend
+    return totalScore
 
 
 if __name__ == '__main__':

@@ -7,7 +7,8 @@ CREATE TABLE users (
   firstName VARCHAR(255),
   lastName VARCHAR(255),
   dailyScreenTime VARCHAR(255),
-  score INT(255) UNSIGNED,
+  dailyScore INT(255) UNSIGNED,
+  totalScore INT(255) UNSIGNED,
   level INT(255) UNSIGNED,
   pfp VARCHAR(100) 
 );
@@ -18,4 +19,4 @@ FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 LINES
-(userName,firstName,lastName,dailyScreenTime,score,level,pfp);
+(userName,firstName,lastName,dailyScreenTime,dailyScore,totalScore,level,pfp);
