@@ -18,6 +18,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.nocial.R;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -138,16 +139,25 @@ public class ProfileFragment extends Fragment {
         // snapchat: com.snapchat.android
         // twitter: com.twitter.android
         // reddit: com.reddit.android
+        List<String> appsToCheck = new ArrayList<>();
+        appsToCheck.add("Reddit");
+        appsToCheck.add("Instagram");
+        appsToCheck.add("TikTok");
+        appsToCheck.add("SnapChat");
+        appsToCheck.add("Twitter");
+
         for (UsageStats usageStats : usageStatsList) {
-            if (usageStats.getPackageName().equals("com.android.chrome") || usageStats.getPackageName().equals("com.google.android.youtube")) {
-                String packageName = (usageStats.getPackageName()).replace("com.", "").replace("google.android", "");
-                stringBuilder.append( packageName ).append(": ").append(usageStats.getTotalTimeInForeground() / 1000).append(" seconds\n");
+            for (int i = 0; i < appsToCheck.size(); i++) {
+                if ( usageStats.getPackageName().toLowerCase().contains( appsToCheck.get(i).toLowerCase() ) ) {
+                    String packageName = appsToCheck.get(i);
+                    stringBuilder.append(packageName).append(": ").append(usageStats.getTotalTimeInForeground() / 1000).append(" seconds\n");
+                }
             }
         }
         profileViewModel.setmAppUsage(stringBuilder.toString());
 
         RequestBody formBody = new FormBody.Builder().add("userData", stringBuilder.toString()).build();
-        Request request = new Request.Builder().url("http://10.0.2.2:5000/updateTotalScore").post(formBody).build();
+        Request request = new Request.Builder().url("http://10.0.2.2:5000/updateTotalScore/"+user).post(formBody).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
