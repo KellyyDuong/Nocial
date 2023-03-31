@@ -1,4 +1,4 @@
-userName,firstName,lastName,dailyScreenTime,dailyScore,totalScore,level,pfp
-music123,Bob,Dylan,1:33:00,95,1000,5,santa-pfp
-dtsela,Dylan,Tse,5:20:00,10,1000,1,duck-pfp
-priya101,Priya,Barve,2:22:00,58,1000,2,squirrel-pfp
+userName,firstName,lastName,dailyScreenTime,dailyScore,totalScore,level,pfp,groupID1,groupID2,groupID3
+music123,Bob,Dylan,100,95,1000,5,santa-pfp,1,2,3
+dtsela,Dylan,Tse,200,10,1000,1,duck-pfp,3,1,2
+priya101,Priya,Barve,300,58,1000,2,squirrel-pfp,2,1,0
