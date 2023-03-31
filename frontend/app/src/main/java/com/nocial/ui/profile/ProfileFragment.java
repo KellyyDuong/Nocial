@@ -33,10 +33,15 @@ import okhttp3.Response;
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
 
+import org.w3c.dom.Text;
+
 public class ProfileFragment extends Fragment {
 
-    private TextView mTextView;
-    private TextView mAppUsageTextView;
+    private TextView mFullName;
+    private TextView mUserName;
+    private TextView mTotalScore;
+    private TextView mAppUsage;
+
     private ProfileViewModel profileViewModel;
     private String user;
     final private OkHttpClient client = new OkHttpClient();
@@ -48,14 +53,16 @@ public class ProfileFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_profile, container, false);
         profileViewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
 
-        mTextView = root.findViewById(R.id.text_profile);
-        mAppUsageTextView = root.findViewById(R.id.app_usage_text_view);
-
         user = "dtsela"; // example userName --> get this user's data
+        mFullName = root.findViewById(R.id.full_name);
+        mUserName = root.findViewById(R.id.user_name);
+        mTotalScore = root.findViewById(R.id.total_score);
+        mAppUsage = root.findViewById(R.id.app_usage);
 
-        profileViewModel.getUserTextLiveData().observe(getViewLifecycleOwner(), s -> mTextView.setText(s));
-
-        profileViewModel.getAppUsageLiveData().observe(getViewLifecycleOwner(), s -> mAppUsageTextView.setText(s));
+        profileViewModel.getFullNameLiveData().observe(getViewLifecycleOwner(), s -> mFullName.setText(s));
+        profileViewModel.getUserNameLiveData().observe(getViewLifecycleOwner(), s -> mUserName.setText(s));
+        profileViewModel.getTotalScoreLiveData().observe(getViewLifecycleOwner(), s -> mTotalScore.setText(s));
+        profileViewModel.getAppUsageLiveData().observe(getViewLifecycleOwner(), s -> mAppUsage.setText(s));
 
         Context context = requireContext();
         if (!checkUsageStatsPermission(context)) {
@@ -64,7 +71,7 @@ public class ProfileFragment extends Fragment {
             showAppUsage();
         }
 
-        makeGetRequest();
+        getUserData();
 
         return root;
     }
@@ -72,7 +79,7 @@ public class ProfileFragment extends Fragment {
     /**
      * Connects to Flask server and displays user data in TextView in ProfileViewModel
      */
-    private void makeGetRequest() {
+    private void getUserData() {
 
         String userUrl = ("http://10.0.2.2:5000/").concat(user);
         Request request = new Request.Builder().url(userUrl).build();
@@ -91,7 +98,40 @@ public class ProfileFragment extends Fragment {
                 }
 
                 String responseText = response.body().string();
-                profileViewModel.setUserText(responseText);
+                String[] userArr = responseText.replaceAll("[\\[\\]\"]", "").split(",");
+
+                profileViewModel.setmFullName(userArr[1].trim() + " " + userArr[2].trim());
+                profileViewModel.setmUserName("@" + userArr[0].trim());
+                profileViewModel.setmTotalScore(userArr[5].trim());
+            }
+        });
+    }
+
+
+
+    /**
+     * This method is for displaying Group data
+     */
+    private void testGetRequest() {
+
+        String userUrl = ("http://10.0.2.2:5000/getGroupView/1");
+        Request request = new Request.Builder().url(userUrl).build();
+
+        // make async HTTP request to server
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    throw new IOException("Unexpected code:" + response);
+                }
+
+                String responseText = response.body().string();
+                profileViewModel.setmTotalScore(responseText);
             }
         });
     }
@@ -106,7 +146,6 @@ public class ProfileFragment extends Fragment {
         int mode = appOpsManager.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, android.os.Process.myUid(), context.getPackageName());
         return mode == AppOpsManager.MODE_ALLOWED;
     }
-
 
     /**
      * Requests permission from Android OS to gather app usage data
@@ -145,19 +184,21 @@ public class ProfileFragment extends Fragment {
         appsToCheck.add("TikTok");
         appsToCheck.add("SnapChat");
         appsToCheck.add("Twitter");
+        appsToCheck.add("YouTube");
 
         for (UsageStats usageStats : usageStatsList) {
-            for (int i = 0; i < appsToCheck.size(); i++) {
-                if ( usageStats.getPackageName().toLowerCase().contains( appsToCheck.get(i).toLowerCase() ) ) {
-                    String packageName = appsToCheck.get(i);
+            for (String app : appsToCheck) {
+                if ( usageStats.getPackageName().toLowerCase().contains(app.toLowerCase()) ) {
+                    String packageName = app;
                     stringBuilder.append(packageName).append(": ").append(usageStats.getTotalTimeInForeground() / 1000).append(" seconds\n");
+                    appsToCheck.remove(app);
                 }
             }
         }
         profileViewModel.setmAppUsage(stringBuilder.toString());
 
         RequestBody formBody = new FormBody.Builder().add("userData", stringBuilder.toString()).build();
-        Request request = new Request.Builder().url("http://10.0.2.2:5000/updateTotalScore/"+user).post(formBody).build();
+        Request request = new Request.Builder().url("http://10.0.2.2:5000/updateDailyScore/"+user).post(formBody).build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {

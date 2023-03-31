@@ -1,9 +1,6 @@
 from typing import List, Dict
 from flask import Flask, jsonify, request
 import mysql.connector
-import json
-import datetime
-import time
 
 app = Flask(__name__)
 
@@ -25,17 +22,13 @@ def connect():
 # calculateScore
 # inputs: userName
 # outputs: convert time String in format H:M:S to minutes -> returns integer 
-def calculateScore(userName) -> int:
-    connection = connect()
-    cursor = connection.cursor()
-    cursor.execute(f"SELECT userName, dailyScreenTime FROM users WHERE userName = '{userName}'")
-    results = [{userName: screenTime} for (userName, screenTime) in cursor]
+def calculateScore(screen_time_seconds):
+    MAX_SCORE = 1000 # max possible points gained per day 
+    MAX_SCREEN_TIME_SECONDS = 86400 # 24 hours in seconds
 
-    score = time.strptime( results[0][userName].split(',')[0], '%H:%M:%S' )
-    score = int(datetime.timedelta(hours=score.tm_hour, minutes=score.tm_min, seconds=score.tm_sec).total_seconds() / 60)
+    screen_time_percent = min(screen_time_seconds / MAX_SCREEN_TIME_SECONDS, 1.0)
+    score = int(round((1 - screen_time_percent) * MAX_SCORE))
 
-    cursor.close()
-    connection.close()
     return score
 
 
@@ -60,7 +53,7 @@ def createImageFilePath(userName) -> str:
 # parseTotalScore
 # inputs: text from Java app containing each app and its usage in seconds
 # outputs: an integer sum of all the seconds
-def parseTotalScore(rawText) -> int:
+def parseTotalTime(rawText):
     times = []
 
     for line in rawText.split('\n'):
@@ -91,43 +84,67 @@ def profile(userName):
     return jsonify(userInfo) # returns list contents as JSON response -> list of Strings accessible
 
 
-@app.route('/updateScore/<userName>')
-def updateScore(userName):
-    connection = connect()
-    cursor = connection.cursor()
-
-    score = calculateScore(userName)
-    cursor.execute(f"UPDATE users SET dailyScore = '{score}' WHERE userName = '{userName}' ")
-    connection.commit()
-    cursor.execute(f"SELECT userName, dailyScore FROM users WHERE userName = '{userName}'")
-    results = [{userName: score} for (userName, score) in cursor]
-    
-    cursor.close()
-    connection.close()
-    return results[0][userName]
-
-
 @app.route('/getpfp/<userName>')
 def getPfp(userName):
     return createImageFilePath(userName)
 
 
-@app.route('/updateTotalScore/<userName>', methods=['GET', 'POST'])
-def debug(userName):
+@app.route('/updateDailyScore/<userName>', methods=['GET', 'POST'])
+def updateDailyScore(userName):
     connection = connect()
     cursor = connection.cursor()
 
-    # POST request
-    txt = request.form["userData"]
-    totalScore = parseTotalScore(txt)
-    
-    cursor.execute(f"UPDATE users SET totalScore = '{totalScore}' WHERE userName = '{userName}'")
+    txt = request.form["userData"] # form sent from frontend should have name "userData"
+    dailyScore = parseTotalTime(txt)
+    dailyScore = calculateScore(dailyScore)
+
+    cursor.execute(f"UPDATE users SET dailyScore = '{dailyScore}' WHERE userName = '{userName}'")
     connection.commit()
-    
+
     cursor.close()
     connection.close()
-    # sends it to the frontend
-    return totalScore
+    return str(dailyScore)
+    
+
+@app.route('/getGroupView/<groupID>')
+def getGroupView(groupID):
+    connection = connect()
+    cursor = connection.cursor()
+
+    cursor.execute(f"SELECT userName,dailyScore FROM users WHERE groupID1='{groupID}' OR groupID2='{groupID}' OR groupID3='{groupID}'") # list of tuples
+    groupArr = [{'userName': userName, 'dailyScore': dailyScore} for (userName, dailyScore) in cursor]
+    sortedGroupArr = sorted(groupArr, key=lambda x: x['dailyScore'], reverse=True) # sorted list of dicts
+
+    cursor.execute(f"SELECT groupName, groupDesc FROM groups WHERE groupID='{groupID}'")
+    gName = ""
+    gDesc = ""
+    for row in cursor: 
+        gName = row[0]
+        gDesc = row[1]
+
+    returnObj = {}
+    returnObj['groupName'] = gName
+    returnObj['groupDesc'] = gDesc
+    returnObj['groupMembers'] = sortedGroupArr
+
+    # {
+        # groupName: ""
+        # groupDesc: ""
+        # groupMembers: [
+            # {
+                # name: ''
+                # score: ''
+            # },
+            # {
+                # name: '' 
+                # score: ''
+            # }, 
+        # ]
+    # }
+
+    cursor.close()
+    connection.close()
+    return returnObj
 
 
 if __name__ == '__main__':
