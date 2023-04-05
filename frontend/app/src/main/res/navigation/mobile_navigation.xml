@@ -11,12 +11,6 @@
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
-<!--    <fragment-->
-<!--        android:id="@+id/navigation_groups"-->
-<!--        android:name="com.nocial.ui.groups.GroupsFragment"-->
-<!--        android:label="@string/title_groups"-->
-<!--        tools:layout="@layout/fragment_groups" />-->
-
     <fragment
         android:id="@+id/navigation_feed"
         android:name="com.nocial.ui.feed.FeedFragment"
