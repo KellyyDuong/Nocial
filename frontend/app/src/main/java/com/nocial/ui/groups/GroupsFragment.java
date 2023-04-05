@@ -1,4 +1,4 @@
-package com.nocial.ui.notifications;
+package com.nocial.ui.groups;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.nocial.databinding.FragmentNotificationsBinding;
+import com.nocial.databinding.FragmentGroupsBinding;
 
-public class NotificationsFragment extends Fragment {
+public class GroupsFragment extends Fragment {
 
-    private FragmentNotificationsBinding binding;
+    private FragmentGroupsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        NotificationsViewModel notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
+        GroupsViewModel groupsViewModel =
+                new ViewModelProvider(this).get(GroupsViewModel.class);
 
-        binding = FragmentNotificationsBinding.inflate(inflater, container, false);
+        binding = FragmentGroupsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textNotifications;
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textGroups;
+        groupsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
