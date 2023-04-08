@@ -71,7 +71,8 @@ public class ProfileFragment extends Fragment {
             showAppUsage();
         }
 
-        getUserData();
+        testGetRequest();
+        //getUserData();
 
         return root;
     }
@@ -114,7 +115,7 @@ public class ProfileFragment extends Fragment {
      */
     private void testGetRequest() {
 
-        String userUrl = ("http://10.0.2.2:5000/getGroupView/1");
+        String userUrl = ("http://10.0.2.2:5000/availableUsers");
         Request request = new Request.Builder().url(userUrl).build();
 
         // make async HTTP request to server
