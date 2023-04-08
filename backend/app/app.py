@@ -84,6 +84,18 @@ def profile(userName):
     return jsonify(userInfo) # returns list contents as JSON response -> list of Strings accessible
 
 
+@app.route('/availableUsers')
+def availableUsers():
+    connection = connect()
+    cursor = connection.cursor()
+    cursor.execute(f"SELECT userName FROM users")
+    available = [{"userName": userName} for (userName) in cursor]
+
+    cursor.close()
+    connection.close()
+    return jsonify(available)
+
+
 @app.route('/getpfp/<userName>')
 def getPfp(userName):
     return createImageFilePath(userName)
@@ -163,8 +175,8 @@ def getHomeView(userName):
         groupData.append(groupDict[0]) 
 
     # [
-      # [{groupName, groupDesc}],
-      # [{groupName, groupDesc}]
+      # {groupName, groupDesc},
+      # {groupName, groupDesc},
     # ]
 
     connection.close()
