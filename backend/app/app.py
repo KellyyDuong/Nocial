@@ -147,5 +147,30 @@ def getGroupView(groupID):
     return returnObj
 
 
+@app.route('/getHomeView/<userName>')
+def getHomeView(userName):
+    connection = connect()
+    cursor = connection.cursor()
+
+    cursor.execute(f"SELECT groupID1, groupID2, groupID3 FROM users WHERE userName='{userName}'")
+    groupList = list(cursor.fetchone())
+    # [2,1,3]
+
+    groupData = []
+    for id in groupList:
+        cursor.execute(f"SELECT groupName, groupDesc FROM groups WHERE groupID={id}")
+        groupDict = [{'groupName': groupName, 'groupDesc': groupDesc} for (groupName, groupDesc) in cursor]
+        groupData.append(groupDict[0]) 
+
+    # [
+      # [{groupName, groupDesc}],
+      # [{groupName, groupDesc}]
+    # ]
+
+    connection.close()
+    cursor.close()
+    return jsonify(groupData)
+    
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
