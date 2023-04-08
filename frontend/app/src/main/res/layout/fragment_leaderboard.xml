@@ -42,10 +42,10 @@
             android:translationZ="90dp"
             app:layout_constraintBottom_toBottomOf="@+id/Lead1"
             app:layout_constraintEnd_toEndOf="@+id/Lead1"
-            app:layout_constraintHorizontal_bias="0.821"
+            app:layout_constraintHorizontal_bias="0.781"
             app:layout_constraintStart_toStartOf="@+id/Lead1"
             app:layout_constraintTop_toTopOf="@+id/Lead1"
-            app:layout_constraintVertical_bias="0.519" />
+            app:layout_constraintVertical_bias="0.561" />
 
         <TextView
             android:id="@+id/User2"
@@ -154,7 +154,6 @@
             android:translationZ="90dp"
             app:layout_constraintBottom_toBottomOf="@+id/Lead5"
             app:layout_constraintEnd_toStartOf="@+id/PointMe"
-            app:layout_constraintHorizontal_bias="0.538"
             app:layout_constraintStart_toStartOf="@+id/Lead5"
             app:layout_constraintTop_toTopOf="@+id/Lead5" />
 
@@ -170,7 +169,7 @@
             android:translationZ="90dp"
             app:layout_constraintBottom_toBottomOf="@+id/Lead5"
             app:layout_constraintEnd_toEndOf="@+id/Lead5"
-            app:layout_constraintHorizontal_bias="0.801"
+            app:layout_constraintHorizontal_bias="0.853"
             app:layout_constraintStart_toStartOf="@+id/Lead5"
             app:layout_constraintTop_toTopOf="@+id/Lead5"
             app:layout_constraintVertical_bias="0.438" />
@@ -271,6 +270,17 @@
             android:textStyle="bold"
             tools:layout_editor_absoluteX="150dp"
             tools:layout_editor_absoluteY="749dp" />
+
+        <ImageView
+            android:id="@+id/GoldT"
+            android:layout_width="33dp"
+            android:layout_height="34dp"
+            android:src="@drawable/gold_trophy"
+            android:translationZ="90dp"
+            app:layout_constraintBottom_toBottomOf="@+id/Lead1"
+            app:layout_constraintEnd_toEndOf="@+id/Lead1"
+            app:layout_constraintStart_toEndOf="@+id/Point1"
+            app:layout_constraintTop_toTopOf="@+id/Lead1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
