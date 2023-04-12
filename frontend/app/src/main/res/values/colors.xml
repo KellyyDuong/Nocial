@@ -7,5 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="background">#F9F8F8</color>
+
+    <color name="coral_pink">#F48B7B</color>
+    <color name="bittersweet">#F07167</color>
+    <color name="melon">#F7A58F</color>
 </resources>
