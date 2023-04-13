@@ -24,8 +24,10 @@ public class GroupsFragment extends Fragment {
         binding = FragmentGroupsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textGroups;
-        groupsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        System.out.println("GROUPS FRAGMENT ON CREATE");
+
+//        final TextView textView = binding.textGroups;
+//        groupsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
