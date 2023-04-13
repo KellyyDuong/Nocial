@@ -10,7 +10,7 @@ public class FeedViewModel extends ViewModel {
 
     public FeedViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is feed fragment");
+        mText.setValue("");
     }
 
     public LiveData<String> getText() {

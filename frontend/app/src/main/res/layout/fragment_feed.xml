@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:translationZ="90dp"
     tools:context=".ui.feed.FeedFragment">
 
     <TextView
         android:id="@+id/text_feed"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -17,6 +18,315 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.888"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.453" />
+
+    <EditText
+        android:id="@+id/Today"
+        android:layout_width="365dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Today"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.019" />
+
+    <EditText
+        android:id="@+id/ThisWeek"
+        android:layout_width="365dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="This Week"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/N4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/N3" />
+
+    <TextView
+        android:id="@+id/N1"
+        android:layout_width="350dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/leaderboard_box"
+        android:elevation="5dp"
+        android:translationZ="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/N2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Today" />
+
+    <TextView
+        android:id="@+id/N2"
+        android:layout_width="350dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/leaderboard_box"
+        android:elevation="5dp"
+        android:translationZ="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/N1" />
+
+    <TextView
+        android:id="@+id/N3"
+        android:layout_width="350dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/leaderboard_box"
+        android:elevation="5dp"
+        android:translationZ="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/N2" />
+
+    <TextView
+        android:id="@+id/N4"
+        android:layout_width="350dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/leaderboard_box"
+        android:elevation="5dp"
+        android:translationZ="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ThisWeek" />
+
+    <TextView
+        android:id="@+id/N5"
+        android:layout_width="350dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/leaderboard_box"
+        android:elevation="5dp"
+        android:translationZ="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/N4" />
+
+    <ImageView
+        android:id="@+id/Fire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/N5"
+        app:layout_constraintEnd_toEndOf="@+id/N5"
+        app:layout_constraintHorizontal_bias="0.962"
+        app:layout_constraintStart_toStartOf="@+id/N5"
+        app:layout_constraintTop_toTopOf="@+id/N5"
+        app:layout_constraintVertical_bias="0.818"
+        app:srcCompat="@drawable/fire" />
+
+    <ImageView
+        android:id="@+id/Fire2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/fire"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/N2"
+        app:layout_constraintEnd_toEndOf="@+id/N2"
+        app:layout_constraintHorizontal_bias="0.962"
+        app:layout_constraintStart_toStartOf="@+id/N2"
+        app:layout_constraintTop_toTopOf="@+id/N2"
+        app:layout_constraintVertical_bias="0.763" />
+
+    <ImageView
+        android:id="@+id/PenguinBG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/N1"
+        app:layout_constraintStart_toStartOf="@+id/N1"
+        app:layout_constraintTop_toTopOf="@+id/N1"
+        app:layout_constraintVertical_bias="0.555"
+        app:srcCompat="@drawable/purpleprofile" />
+
+    <ImageView
+        android:id="@+id/Penguin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/PenguinBG"
+        app:layout_constraintEnd_toEndOf="@+id/PenguinBG"
+        app:layout_constraintStart_toStartOf="@+id/PenguinBG"
+        app:layout_constraintTop_toTopOf="@+id/PenguinBG"
+        app:srcCompat="@drawable/penguin" />
+
+    <TextView
+        android:id="@+id/N1Text"
+        android:layout_width="238dp"
+        android:layout_height="50dp"
+        android:text="Kelly has dropped 3 places in Amigos"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/N1"
+        app:layout_constraintEnd_toEndOf="@+id/N1"
+        app:layout_constraintStart_toEndOf="@+id/PenguinBG"
+        app:layout_constraintTop_toTopOf="@+id/N1" />
+
+    <ImageView
+        android:id="@+id/CowBG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:src="@drawable/greenprofile"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/N2"
+        app:layout_constraintStart_toStartOf="@+id/N2"
+        app:layout_constraintTop_toTopOf="@+id/N2"
+        app:layout_constraintVertical_bias="0.518" />
+
+    <ImageView
+        android:id="@+id/Cow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/cow"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/CowBG"
+        app:layout_constraintEnd_toEndOf="@+id/CowBG"
+        app:layout_constraintStart_toStartOf="@+id/CowBG"
+        app:layout_constraintTop_toTopOf="@+id/CowBG" />
+
+    <TextView
+        android:id="@+id/N2Text"
+        android:layout_width="238dp"
+        android:layout_height="50dp"
+        android:text="Jonathan ranked last in Familia"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/N2"
+        app:layout_constraintEnd_toEndOf="@+id/N2"
+        app:layout_constraintStart_toEndOf="@+id/CowBG"
+        app:layout_constraintTop_toTopOf="@+id/N2" />
+
+    <ImageView
+        android:id="@+id/HourglassBG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:src="@drawable/blueprofile"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/N3"
+        app:layout_constraintStart_toStartOf="@+id/N3"
+        app:layout_constraintTop_toTopOf="@+id/N3"
+        app:layout_constraintVertical_bias="0.518" />
+
+    <ImageView
+        android:id="@+id/HourGlass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/hourglass"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/HourglassBG"
+        app:layout_constraintEnd_toEndOf="@+id/HourglassBG"
+        app:layout_constraintStart_toStartOf="@+id/HourglassBG"
+        app:layout_constraintTop_toTopOf="@+id/HourglassBG" />
+
+    <TextView
+        android:id="@+id/N3Text"
+        android:layout_width="238dp"
+        android:layout_height="50dp"
+        android:text="You have reached 8 hours of social media for today"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/N3"
+        app:layout_constraintEnd_toEndOf="@+id/N3"
+        app:layout_constraintStart_toEndOf="@+id/HourglassBG"
+        app:layout_constraintTop_toTopOf="@+id/N3" />
+
+    <ImageView
+        android:id="@+id/CatBG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:src="@drawable/yellowprofile"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/N4"
+        app:layout_constraintStart_toStartOf="@+id/N4"
+        app:layout_constraintTop_toTopOf="@+id/N4" />
+
+    <ImageView
+        android:id="@+id/Cat"
+        android:layout_width="39dp"
+        android:layout_height="40dp"
+        android:src="@drawable/smilecat"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/CatBG"
+        app:layout_constraintEnd_toEndOf="@+id/CatBG"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="@+id/CatBG"
+        app:layout_constraintTop_toTopOf="@+id/CatBG"
+        app:layout_constraintVertical_bias="0.555" />
+
+    <TextView
+        android:id="@+id/N4Text"
+        android:layout_width="238dp"
+        android:layout_height="wrap_content"
+        android:text="Dad has maintained #1 in Familia for the past 4 days"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/N4"
+        app:layout_constraintEnd_toEndOf="@+id/N4"
+        app:layout_constraintStart_toEndOf="@+id/CatBG"
+        app:layout_constraintTop_toTopOf="@+id/N4" />
+
+    <ImageView
+        android:id="@+id/MarkBG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:src="@drawable/orangeprofile"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/N5"
+        app:layout_constraintEnd_toEndOf="@+id/N5"
+        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintStart_toStartOf="@+id/N5"
+        app:layout_constraintTop_toTopOf="@+id/N5"
+        app:layout_constraintVertical_bias="0.629" />
+
+    <ImageView
+        android:id="@+id/Mark"
+        android:layout_width="39dp"
+        android:layout_height="41dp"
+        android:src="@drawable/cat"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/MarkBG"
+        app:layout_constraintEnd_toEndOf="@+id/MarkBG"
+        app:layout_constraintStart_toStartOf="@+id/MarkBG"
+        app:layout_constraintTop_toTopOf="@+id/MarkBG" />
+
+    <TextView
+        android:id="@+id/N5Text"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:text="Mark surpassed his limit of 2 hours of social media"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/N5"
+        app:layout_constraintEnd_toEndOf="@+id/N5"
+        app:layout_constraintHorizontal_bias="0.366"
+        app:layout_constraintStart_toEndOf="@+id/MarkBG"
+        app:layout_constraintTop_toTopOf="@+id/N5"
+        app:layout_constraintVertical_bias="0.4" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
