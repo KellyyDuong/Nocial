@@ -270,8 +270,8 @@
             android:textColor="#000000"
             android:textSize="30sp"
             android:textStyle="bold"
-            tools:layout_editor_absoluteX="150dp"
-            tools:layout_editor_absoluteY="749dp" />
+            tools:layout_editor_absoluteX="151dp"
+            tools:layout_editor_absoluteY="787dp" />
 
         <TextView
             android:id="@+id/Forth"
@@ -338,67 +338,116 @@
             app:layout_constraintTop_toTopOf="@+id/Lead3" />
 
         <ImageView
-            android:id="@+id/Profile1"
+            android:id="@+id/BG1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/circleprofile"
+            android:src="@drawable/yellowprofile"
             android:translationZ="90dp"
             app:layout_constraintBottom_toBottomOf="@+id/Lead1"
             app:layout_constraintEnd_toStartOf="@+id/User1"
-            app:layout_constraintHorizontal_bias="0.666"
             app:layout_constraintStart_toStartOf="@+id/Lead1"
-            app:layout_constraintTop_toTopOf="@+id/Lead1"
-            app:layout_constraintVertical_bias="0.48" />
+            app:layout_constraintTop_toTopOf="@+id/Lead1" />
 
         <ImageView
-            android:id="@+id/Profile2"
+            android:id="@+id/BG2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/circleprofile"
+            android:src="@drawable/orangeprofile"
             android:translationZ="90dp"
             app:layout_constraintBottom_toBottomOf="@+id/Lead2"
             app:layout_constraintEnd_toStartOf="@+id/User2"
-            app:layout_constraintHorizontal_bias="0.64"
             app:layout_constraintStart_toStartOf="@+id/Lead2"
-            app:layout_constraintTop_toTopOf="@+id/Lead2"
-            app:layout_constraintVertical_bias="0.52" />
+            app:layout_constraintTop_toTopOf="@+id/Lead2" />
 
         <ImageView
-            android:id="@+id/Profile3"
+            android:id="@+id/BG3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:src="@drawable/circleprofile"
+            android:layout_marginEnd="9dp"
+            android:src="@drawable/pinkprofile"
             android:translationZ="90dp"
             app:layout_constraintBottom_toBottomOf="@+id/Lead3"
+            app:layout_constraintEnd_toStartOf="@+id/User3"
             app:layout_constraintStart_toStartOf="@+id/Lead3"
-            app:layout_constraintTop_toTopOf="@+id/Lead3"
-            app:layout_constraintVertical_bias="0.56" />
+            app:layout_constraintTop_toTopOf="@+id/Lead3" />
 
         <ImageView
-            android:id="@+id/Profile4"
+            android:id="@+id/BG4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/circleprofile"
+            android:src="@drawable/greenprofile"
             android:translationZ="90dp"
             app:layout_constraintBottom_toBottomOf="@+id/Lead4"
             app:layout_constraintEnd_toStartOf="@+id/User4"
             app:layout_constraintStart_toStartOf="@+id/Lead4"
-            app:layout_constraintTop_toTopOf="@+id/Lead4"
-            app:layout_constraintVertical_bias="0.52" />
+            app:layout_constraintTop_toTopOf="@+id/Lead4" />
 
         <ImageView
-            android:id="@+id/Profile5"
+            android:id="@+id/BG5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/circleprofile"
+            android:src="@drawable/purpleprofile"
             android:translationZ="90dp"
             app:layout_constraintBottom_toBottomOf="@+id/Lead5"
             app:layout_constraintEnd_toStartOf="@+id/UserMe"
-            app:layout_constraintHorizontal_bias="0.484"
             app:layout_constraintStart_toStartOf="@+id/Lead5"
-            app:layout_constraintTop_toTopOf="@+id/Lead5"
-            app:layout_constraintVertical_bias="0.52" />
+            app:layout_constraintTop_toTopOf="@+id/Lead5" />
+
+        <ImageView
+            android:id="@+id/P1"
+            android:layout_width="39dp"
+            android:layout_height="40dp"
+            android:src="@drawable/smilecat"
+            android:translationZ="90dp"
+            app:layout_constraintBottom_toBottomOf="@+id/BG1"
+            app:layout_constraintEnd_toEndOf="@+id/BG1"
+            app:layout_constraintStart_toStartOf="@+id/BG1"
+            app:layout_constraintTop_toTopOf="@+id/BG1" />
+
+        <ImageView
+            android:id="@+id/P2"
+            android:layout_width="39dp"
+            android:layout_height="41dp"
+            android:src="@drawable/cat"
+            android:translationZ="90dp"
+            app:layout_constraintBottom_toBottomOf="@+id/BG2"
+            app:layout_constraintEnd_toEndOf="@+id/BG2"
+            app:layout_constraintStart_toStartOf="@+id/BG2"
+            app:layout_constraintTop_toTopOf="@+id/BG2" />
+
+        <ImageView
+            android:id="@+id/P3"
+            android:layout_width="43dp"
+            android:layout_height="42dp"
+            android:src="@drawable/fox"
+            android:translationZ="90dp"
+            app:layout_constraintBottom_toBottomOf="@+id/BG3"
+            app:layout_constraintEnd_toEndOf="@+id/BG3"
+            app:layout_constraintStart_toStartOf="@+id/BG3"
+            app:layout_constraintTop_toTopOf="@+id/BG3" />
+
+        <ImageView
+            android:id="@+id/P4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/cow"
+            android:translationZ="90dp"
+            app:layout_constraintBottom_toBottomOf="@+id/BG4"
+            app:layout_constraintEnd_toEndOf="@+id/BG4"
+            app:layout_constraintStart_toStartOf="@+id/BG4"
+            app:layout_constraintTop_toTopOf="@+id/BG4" />
+
+        <ImageView
+            android:id="@+id/P5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/penguin"
+            android:translationZ="90dp"
+            app:layout_constraintBottom_toBottomOf="@+id/BG5"
+            app:layout_constraintEnd_toEndOf="@+id/BG5"
+            app:layout_constraintStart_toStartOf="@+id/BG5"
+            app:layout_constraintTop_toTopOf="@+id/BG5" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
