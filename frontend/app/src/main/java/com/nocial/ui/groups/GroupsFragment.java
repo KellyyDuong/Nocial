@@ -34,16 +34,31 @@ public class GroupsFragment extends Fragment {
         System.out.println("GROUPS FRAGMENT ON CREATE");
 
         ArrayList<String> userNames = new ArrayList<>();
+        userNames.add("Cow");
+        userNames.add("Horse");
+        userNames.add("Mouse");
+        userNames.add("Hamster");
+        userNames.add("Gorilla");
+        userNames.add("Penguin");
 
-        userNames.add("one");
-        userNames.add("two");
-        userNames.add("three");
-        userNames.add("four");
-        userNames.add("five");
-        userNames.add("six");
+        ArrayList<Integer> userScreenTime = new ArrayList<>();
+        userScreenTime.add(10);
+        userScreenTime.add(20);
+        userScreenTime.add(30);
+        userScreenTime.add(40);
+        userScreenTime.add(50);
+        userScreenTime.add(60);
+
+        ArrayList<Integer> reactions = new ArrayList<>();
+        reactions.add(202);
+        reactions.add(202);
+        reactions.add(202);
+        reactions.add(202);
+        reactions.add(202);
+        reactions.add(202);
 
         RecyclerView playerRecyclerView = root.findViewById(R.id.playerRecyclerView);
-        GroupsPlayerListAdapter adapter = new GroupsPlayerListAdapter(requireActivity(), userNames);
+        GroupsPlayerListAdapter adapter = new GroupsPlayerListAdapter(requireActivity(), userNames, userScreenTime, reactions);
 
         playerRecyclerView.setAdapter(adapter);
         playerRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
