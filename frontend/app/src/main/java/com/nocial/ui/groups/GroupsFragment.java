@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -12,12 +11,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.nocial.GroupsPlayerListAdapter;
+import com.nocial.GroupPlayerListAdapter;
 import com.nocial.R;
 import com.nocial.databinding.FragmentGroupsBinding;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class GroupsFragment extends Fragment {
 
@@ -31,14 +29,12 @@ public class GroupsFragment extends Fragment {
         binding = FragmentGroupsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        System.out.println("GROUPS FRAGMENT ON CREATE");
-
         ArrayList<String> userNames = new ArrayList<>();
         userNames.add("Cow");
-        userNames.add("Horse");
-        userNames.add("Mouse");
-        userNames.add("Hamster");
-        userNames.add("Gorilla");
+        userNames.add("Cat");
+        userNames.add("Smiling Cat");
+        userNames.add("Fox");
+        userNames.add("Dog");
         userNames.add("Penguin");
 
         ArrayList<Integer> userScreenTime = new ArrayList<>();
@@ -57,14 +53,20 @@ public class GroupsFragment extends Fragment {
         reactions.add(202);
         reactions.add(202);
 
+        ArrayList<String> profilePictures = new ArrayList<>();
+        profilePictures.add("cow");
+        profilePictures.add("cat");
+        profilePictures.add("smilecat");
+        profilePictures.add("fox");
+        profilePictures.add("dog");
+        profilePictures.add("penguin");
+
         RecyclerView playerRecyclerView = root.findViewById(R.id.playerRecyclerView);
-        GroupsPlayerListAdapter adapter = new GroupsPlayerListAdapter(requireActivity(), userNames, userScreenTime, reactions);
+        GroupPlayerListAdapter adapter = new GroupPlayerListAdapter(requireActivity(), userNames, userScreenTime, reactions, profilePictures);
 
         playerRecyclerView.setAdapter(adapter);
         playerRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
 
-//        final TextView textView = binding.textGroups;
-//        groupsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

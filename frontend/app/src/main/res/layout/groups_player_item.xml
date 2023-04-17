@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/ProfilePicBG"
+            android:id="@+id/profilePicBG"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="75dp"
@@ -28,15 +28,15 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/ProfilePic"
+            android:id="@+id/profilePic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/cow"
             android:translationZ="90dp"
-            app:layout_constraintBottom_toBottomOf="@+id/ProfilePicBG"
-            app:layout_constraintEnd_toEndOf="@+id/ProfilePicBG"
-            app:layout_constraintStart_toStartOf="@+id/ProfilePicBG"
-            app:layout_constraintTop_toTopOf="@+id/ProfilePicBG" />
+            app:layout_constraintBottom_toBottomOf="@+id/profilePicBG"
+            app:layout_constraintEnd_toEndOf="@+id/profilePicBG"
+            app:layout_constraintStart_toStartOf="@+id/profilePicBG"
+            app:layout_constraintTop_toTopOf="@+id/profilePicBG" />
 
         <TextView
             android:id="@+id/player_place"
@@ -51,15 +51,13 @@
 
         <TextView
             android:id="@+id/player_name"
-            android:layout_width="0dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginEnd="8dp"
             android:autoSizeTextType="uniform"
             android:autoText="true"
             android:singleLine="true"
             android:text="Username"
-            app:layout_constraintEnd_toStartOf="@+id/ProfilePicBG"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/player_place" />
 
@@ -103,7 +101,7 @@
             android:scaleY="5"
             app:layout_constraintBottom_toTopOf="@+id/comment_button"
             app:layout_constraintEnd_toStartOf="@+id/react"
-            app:layout_constraintStart_toEndOf="@+id/ProfilePicBG"
+            app:layout_constraintStart_toEndOf="@+id/profilePicBG"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button

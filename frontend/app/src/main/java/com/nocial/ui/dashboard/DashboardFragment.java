@@ -31,11 +31,10 @@ public class DashboardFragment extends Fragment {
         final TextView textView = dashboardBinding.textDashboard;
         dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
+        // Stuff below can be changed, it is temp for groups fragment testing
         Button button = (Button) root.findViewById(R.id.to_groups_button);
 
         button.setOnClickListener(v -> {
-
-            System.out.println("GROUP BUTTON CLICKED");
 
             FragmentManager fragmentManager = getParentFragmentManager();
             fragmentManager.beginTransaction()
@@ -44,12 +43,6 @@ public class DashboardFragment extends Fragment {
                 .addToBackStack("name") // name can be null
                 .commit();
         });
-
-
-//        setTimeout(() -> {
-//            groupsBinding = FragmentGroupsBinding.inflate(inflater, container, false);
-//            View root2 = groupsBinding.getRoot();
-//        }, 10000);
 
         return root;
     }
