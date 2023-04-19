@@ -268,7 +268,8 @@
         android:layout_height="wrap_content"
         android:text="2 hours 5 minutes"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="200dp"
-        tools:layout_editor_absoluteY="98dp" />
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
