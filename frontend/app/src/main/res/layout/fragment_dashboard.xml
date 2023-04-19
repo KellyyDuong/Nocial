@@ -24,9 +24,13 @@
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="450dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="20dp"
         android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="168dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -84,13 +88,12 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:layout_weight="2"
-                        android:
                         android:background="@drawable/rounded_corner_view_medorange"
                         android:orientation="vertical"
                         android:weightSum="2">
 
                         <ImageView
-                            android:id="@+id/sunrisepic"
+                            android:id="@+id/sunrize"
                             android:layout_width="match_parent"
                             android:layout_height="60dp"
                             android:layout_marginTop="10dp"
@@ -98,7 +101,7 @@
                             app:srcCompat="@drawable/sunrise" />
 
                         <TextView
-                            android:id="@+id/sunrise"
+                            android:id="@+id/sunrisee"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginTop="5dp"
@@ -116,13 +119,12 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:layout_weight="2"
-                        android:
                         android:background="@drawable/rounded_corner_view_medorange"
                         android:orientation="vertical"
                         android:weightSum="2">
 
                         <ImageView
-                            android:id="@+id/sunrisepic"
+                            android:id="@+id/sunrises"
                             android:layout_width="match_parent"
                             android:layout_height="60dp"
                             android:layout_marginTop="10dp"
@@ -130,7 +132,7 @@
                             app:srcCompat="@drawable/sunrise" />
 
                         <TextView
-                            android:id="@+id/sunrise"
+                            android:id="@+id/sunrisess"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginTop="5dp"
@@ -148,13 +150,12 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:layout_weight="2"
-                        android:
                         android:background="@drawable/rounded_corner_view_medorange"
                         android:orientation="vertical"
                         android:weightSum="2">
 
                         <ImageView
-                            android:id="@+id/sunrisepic"
+                            android:id="@+id/sunrisepic1"
                             android:layout_width="match_parent"
                             android:layout_height="60dp"
                             android:layout_marginTop="10dp"
@@ -174,7 +175,7 @@
                     </LinearLayout>
 
                     <ImageView
-                        android:id="@+id/sunrisepic"
+                        android:id="@+id/sunrisepic2"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginTop="10dp"
