@@ -11,7 +11,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.nocial.GroupPlayerListAdapter;
 import com.nocial.R;
 import com.nocial.databinding.FragmentGroupsBinding;
 
