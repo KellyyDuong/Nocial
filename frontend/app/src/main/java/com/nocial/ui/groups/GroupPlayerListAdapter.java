@@ -1,4 +1,4 @@
-package com.nocial;
+package com.nocial.ui.groups;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.nocial.R;
 
 import java.util.ArrayList;
 
