@@ -70,12 +70,12 @@ public class GroupPlayerListAdapter extends RecyclerView.Adapter<GroupPlayerList
         public ViewHolder(View itemView) {
             super(itemView);
 
-            username = (TextView) itemView.findViewById(R.id.player_name);
-            place = (TextView) itemView.findViewById(R.id.player_place);
-            reactions = (TextView) itemView.findViewById(R.id.reactionCount);
-            progressBarTime = (TextView) itemView.findViewById(R.id.progressBarTime);
-            progressBar = (ProgressBar) itemView.findViewById(R.id.progressBar);
-            profilePic = (ImageView) itemView.findViewById(R.id.profilePic);
+            username = itemView.findViewById(R.id.player_name);
+            place = itemView.findViewById(R.id.player_place);
+            reactions = itemView.findViewById(R.id.reactionCount);
+            progressBarTime = itemView.findViewById(R.id.progressBarTime);
+            progressBar = itemView.findViewById(R.id.progressBar);
+            profilePic = itemView.findViewById(R.id.profilePic);
         }
     }
 }
