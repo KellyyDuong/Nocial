@@ -17,6 +17,7 @@ import com.nocial.databinding.FragmentDashboardBinding;
 import com.nocial.ui.groups.GroupsFragment;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class DashboardFragment extends Fragment {
 
@@ -34,28 +35,35 @@ public class DashboardFragment extends Fragment {
         groupNames.add("Mi Familia");
         groupNames.add("Amigos");
         groupNames.add("Homegirls");
-        groupNames.add("Study Group");
-        groupNames.add("Gang");
 
         ArrayList<String> userPlaces = new ArrayList<>();
-        userPlaces.add("5th");
-        userPlaces.add("3rd");
-        userPlaces.add("5th");
         userPlaces.add("2nd");
         userPlaces.add("1st");
+        userPlaces.add("4th");
 
         ArrayList<ArrayList<String>> profilePictures = new ArrayList<>();
 
-        ArrayList<String> subPFPs = new ArrayList<>();
-        subPFPs.add("cow");
-        subPFPs.add("cat");
-        subPFPs.add("smilecat");
+        Random random = new Random();
 
-        profilePictures.add(subPFPs);
-        profilePictures.add(subPFPs);
-        profilePictures.add(subPFPs);
-        profilePictures.add(subPFPs);
-        profilePictures.add(subPFPs);
+        for (int i = 0; i < 3; i++) {
+
+            ArrayList<String> pictures = new ArrayList<>();
+            pictures.add("cow");
+            pictures.add("cat");
+            pictures.add("smilecat");
+            pictures.add("dog");
+            pictures.add("fox");
+            pictures.add("penguin");
+
+            ArrayList<String> selectedPics = new ArrayList<>();
+
+            for (int j = 0; j < pictures.size(); j++) {
+                int randomInt = random.nextInt(pictures.size());
+                selectedPics.add(pictures.remove(randomInt));
+            }
+
+            profilePictures.add(selectedPics);
+        }
 
         View.OnClickListener cardClick = v -> {
             FragmentManager fragmentManager = getParentFragmentManager();
