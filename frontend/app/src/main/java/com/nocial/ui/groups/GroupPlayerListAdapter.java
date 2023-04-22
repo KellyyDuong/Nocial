@@ -46,7 +46,14 @@ public class GroupPlayerListAdapter extends RecyclerView.Adapter<GroupPlayerList
     @Override
     public void onBindViewHolder(@NonNull GroupPlayerListAdapter.ViewHolder holder, int position) {
         holder.username.setText(userNames.get(position));
-        holder.place.setText(position + 1 + " th");
+
+        int place = position + 1;
+
+        if (place == 1) holder.place.setText(place + "st");
+        else if (place == 2) holder.place.setText(place + "nd");
+        else if (place == 3) holder.place.setText(place + "rd");
+        else holder.place.setText(place + "th");
+
         holder.reactions.setText(String.valueOf(reactions.get(position)));
         holder.progressBarTime.setText(String.valueOf(userScreentime.get(position)));
         holder.progressBar.setProgress((int) ((userScreentime.get(position) / 60.0) * 100));
