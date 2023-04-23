@@ -4,7 +4,6 @@ import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.Intent;
 
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.LayoutInflater;
@@ -34,8 +33,6 @@ import okhttp3.Response;
 
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
-
-import org.w3c.dom.Text;
 
 public class ProfileFragment extends Fragment {
 
