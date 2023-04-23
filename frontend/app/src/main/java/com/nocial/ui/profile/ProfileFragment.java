@@ -10,15 +10,18 @@ import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.nocial.R;
 import com.nocial.data.LoginRepository;
+import com.nocial.ui.customize.CustomizeFragment;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -83,6 +86,15 @@ public class ProfileFragment extends Fragment {
 
         displayName.setText(LoginRepository.getInstance().getUser().getDisplayName());
         userName.setText("@" + LoginRepository.getInstance().getUser().getDisplayName().toLowerCase());
+
+        root.findViewById(R.id.editImage).setOnClickListener(v -> {
+            FragmentManager fragmentManager = getParentFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, CustomizeFragment.class, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("CustomizeFragment") // name can be null
+                    .commit();
+        });
 
         return root;
     }

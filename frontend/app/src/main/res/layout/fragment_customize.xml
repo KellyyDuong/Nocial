@@ -21,11 +21,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/rounded_corner_view_lightpurple"
             android:gravity="center"
-            android:layout_marginTop="20dp"
             android:orientation="vertical">
 
             <ImageView
@@ -38,25 +38,25 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/rounded_corner"
+            android:layout_height="503dp"
             android:layout_margin="10dp"
+            android:background="@drawable/rounded_corner"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_height="100dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
                 android:orientation="vertical">
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="10dp">
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/mtextView7"
@@ -75,65 +75,65 @@
                         android:id="@+id/mbutton8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
-                        android:backgroundTint="#E9BCF0"
-                        android:layout_marginLeft="15dp"/>
+                        android:layout_marginLeft="15dp"
+                        android:backgroundTint="#E9BCF0" />
 
                     <Button
                         android:id="@+id/nbutton8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
-                        android:backgroundTint="#B0EEEE"
-                        android:layout_marginLeft="15dp"/>
+                        android:layout_marginLeft="15dp"
+                        android:backgroundTint="#B0EEEE" />
 
                     <Button
                         android:id="@+id/obutton8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
-                        android:backgroundTint="#EEB0B0"
-                        android:layout_marginLeft="15dp"/>
+                        android:layout_marginLeft="15dp"
+                        android:backgroundTint="#EEB0B0" />
 
                     <Button
                         android:id="@+id/pbutton8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
-                        android:backgroundTint="#E4EB91"
-                        android:layout_marginLeft="15dp"/>
+                        android:layout_marginLeft="15dp"
+                        android:backgroundTint="#E4EB91" />
 
                     <Button
                         android:id="@+id/qbutton8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
-                        android:backgroundTint="#D4EEB0"
-                        android:layout_marginLeft="15dp"/>
+                        android:layout_marginLeft="15dp"
+                        android:backgroundTint="#D4EEB0" />
 
                     <ImageView
                         android:id="@+id/mtest"
                         android:layout_width="30dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="2dp"
-                        android:padding="3dp"
                         android:alpha="0.53"
+                        android:padding="3dp"
                         app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
 
                 </LinearLayout>
 
 
-
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_height="100dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
                 android:orientation="vertical">
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="10dp">
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/atextView7"
@@ -152,65 +152,65 @@
                         android:id="@+id/bbutton8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/penguin"
-                        android:layout_marginLeft="15dp"/>
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/penguin" />
 
                     <ImageView
                         android:id="@+id/cbutton8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/cat"
-                        android:layout_marginLeft="15dp"/>
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/cat" />
 
                     <ImageView
                         android:id="@+id/dbutton8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/fox"
-                        android:layout_marginLeft="15dp"/>
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/fox" />
 
                     <ImageView
                         android:id="@+id/ebutton8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/dog"
-                        android:layout_marginLeft="15dp"/>
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/dog" />
 
                     <ImageView
                         android:id="@+id/fbutton8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/smilecat"
-                        android:layout_marginLeft="15dp"/>
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/smilecat" />
 
                     <ImageView
                         android:id="@+id/gtest"
                         android:layout_width="30dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="2dp"
-                        android:padding="3dp"
                         android:alpha="0.53"
+                        android:padding="3dp"
                         app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
 
                 </LinearLayout>
 
 
-
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_height="100dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
                 android:orientation="vertical">
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="10dp">
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/qtextView7"
@@ -229,65 +229,65 @@
                         android:id="@+id/rbutton8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/penguin"
-                        android:layout_marginLeft="15dp"/>
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/penguin" />
 
                     <ImageView
                         android:id="@+id/sbutton8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/cat"
-                        android:layout_marginLeft="15dp"/>
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/cat" />
 
                     <ImageView
                         android:id="@+id/tbutton8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/fox"
-                        android:layout_marginLeft="15dp"/>
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/fox" />
 
                     <ImageView
                         android:id="@+id/ubutton8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/dog"
-                        android:layout_marginLeft="15dp"/>
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/dog" />
 
                     <ImageView
                         android:id="@+id/vbutton8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/smilecat"
-                        android:layout_marginLeft="15dp"/>
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/smilecat" />
 
                     <ImageView
                         android:id="@+id/wtest"
                         android:layout_width="30dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="2dp"
-                        android:padding="3dp"
                         android:alpha="0.53"
+                        android:padding="3dp"
                         app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
 
                 </LinearLayout>
 
 
-
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_height="100dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
                 android:orientation="vertical">
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="10dp">
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/textView7"
@@ -306,54 +306,52 @@
                         android:id="@+id/z1button8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/penguin"
-                        android:layout_marginLeft="15dp"/>
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/penguin" />
 
                     <ImageView
                         android:id="@+id/z2button8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/cat"
-                        android:layout_marginLeft="15dp"/>
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/cat" />
 
                     <ImageView
                         android:id="@+id/z3button8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/fox"
-                        android:layout_marginLeft="15dp"/>
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/fox" />
 
                     <ImageView
                         android:id="@+id/z4button8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/dog"
-                        android:layout_marginLeft="15dp"/>
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/dog" />
 
                     <ImageView
                         android:id="@+id/z5button8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/smilecat"
-                        android:layout_marginLeft="15dp"/>
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/smilecat" />
 
                     <ImageView
                         android:id="@+id/ztest"
                         android:layout_width="30dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="2dp"
-                        android:padding="3dp"
                         android:alpha="0.53"
+                        android:padding="3dp"
                         app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
 
                 </LinearLayout>
-
-
 
             </LinearLayout>
 
         </LinearLayout>
 
-
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

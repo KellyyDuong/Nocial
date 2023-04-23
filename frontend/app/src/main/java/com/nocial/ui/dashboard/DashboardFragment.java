@@ -72,7 +72,7 @@ public class DashboardFragment extends Fragment {
             fragmentManager.beginTransaction()
                     .replace(R.id.fragment_container, GroupsFragment.class, null)
                     .setReorderingAllowed(true)
-                    .addToBackStack("name") // name can be null
+                    .addToBackStack("GroupsFragment") // name can be null
                     .commit();
         };
 
