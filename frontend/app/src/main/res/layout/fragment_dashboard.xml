@@ -9,40 +9,47 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="31dp"
-        app:layout_constraintEnd_toStartOf="@+id/textView4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/cat"
         tools:src="@drawable/penguin" />
 
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
+        android:id="@+id/userWelcomeString"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="46dp"
+        android:layout_marginEnd="24dp"
+        android:autoSizeMaxTextSize="50dp"
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeStepGranularity="1px"
+        android:autoSizeTextType="uniform"
+        android:maxLines="1"
+        android:singleLine="false"
         android:text="Hello, Kelly"
+        android:textAlignment="center"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="51dp"
+        android:layout_marginTop="8dp"
         android:text="2 hours 5 minutes"
+        android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/userWelcomeString" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/groups_recycler_view"
@@ -51,7 +58,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="180dp"
+        android:layout_marginBottom="170dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,18 +66,18 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="20dp"
+        android:layout_width="380dp"
+        android:layout_height="71dp"
+        android:layout_margin="10dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/groups_recycler_view">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:background="@drawable/rounded_corner_view_medorange"
             android:orientation="horizontal"
@@ -91,7 +98,7 @@
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 tools:layout_editor_absoluteX="188dp"
-                tools:layout_editor_absoluteY="55dp" />
+                tools:layout_editor_absoluteY="60dp" />
 
         </LinearLayout>
 
@@ -118,12 +125,12 @@
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 tools:layout_editor_absoluteX="188dp"
-                tools:layout_editor_absoluteY="55dp" />
+                tools:layout_editor_absoluteY="60dp" />
 
         </LinearLayout>
     </LinearLayout>
 
-    <androidx.fragment.app.FragmentContainerView
+            <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"
         android:layout_width="0dp"
         android:layout_height="0dp"

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -13,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.nocial.R;
+import com.nocial.data.LoginRepository;
+import com.nocial.data.model.LoggedInUser;
 import com.nocial.databinding.FragmentDashboardBinding;
 import com.nocial.ui.groups.GroupsFragment;
 
@@ -23,13 +26,18 @@ public class DashboardFragment extends Fragment {
 
     private FragmentDashboardBinding dashboardBinding;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        DashboardViewModel dashboardViewModel = new ViewModelProvider(this).get(DashboardViewModel.class);
 
         dashboardBinding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = dashboardBinding.getRoot();
+
+        LoginRepository instance = LoginRepository.getInstance();
+        LoggedInUser user = instance.getUser();
+
+        TextView welcomeText = root.findViewById(R.id.userWelcomeString);
+        welcomeText.setText("Welcome, " + user.getDisplayName());
 
         ArrayList<String> groupNames = new ArrayList<>();
         groupNames.add("Mi Familia");
