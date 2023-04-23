@@ -10,6 +10,7 @@ import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.nocial.R;
+import com.nocial.data.LoginRepository;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -53,16 +56,17 @@ public class ProfileFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_profile, container, false);
         profileViewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
 
-        user = "dtsela"; // example userName --> get this user's data
-        mFullName = root.findViewById(R.id.full_name);
-        mUserName = root.findViewById(R.id.user_name);
-        mTotalScore = root.findViewById(R.id.total_score);
-        mAppUsage = root.findViewById(R.id.app_usage);
+        user = "ashleychen888"; // example userName --> get this user's data
+        mFullName = root.findViewById(R.id.displayNameLabel);
+        mUserName = root.findViewById(R.id.userNameLabel);
+        mTotalScore = root.findViewById(R.id.pointLabel);
+        mAppUsage = root.findViewById(R.id.instagramTimeLabel);
+        ProgressBar progressBar = root.findViewById(R.id.pointProgress);
 
         profileViewModel.getFullNameLiveData().observe(getViewLifecycleOwner(), s -> mFullName.setText(s));
         profileViewModel.getUserNameLiveData().observe(getViewLifecycleOwner(), s -> mUserName.setText(s));
         profileViewModel.getTotalScoreLiveData().observe(getViewLifecycleOwner(), s -> mTotalScore.setText(s));
-        profileViewModel.getAppUsageLiveData().observe(getViewLifecycleOwner(), s -> mAppUsage.setText(s));
+//        profileViewModel.getAppUsageLiveData().observe(getViewLifecycleOwner(), s -> mAppUsage.setText(s));
 
         Context context = requireContext();
         if (!checkUsageStatsPermission(context)) {
@@ -71,8 +75,14 @@ public class ProfileFragment extends Fragment {
             showAppUsage();
         }
 
-        testGetRequest();
-        //getUserData();
+        //testGetRequest();
+        getUserData();
+
+        TextView displayName = root.findViewById(R.id.displayNameLabel);
+        TextView userName = root.findViewById(R.id.userNameLabel);
+
+        displayName.setText(LoginRepository.getInstance().getUser().getDisplayName());
+        userName.setText("@" + LoginRepository.getInstance().getUser().getDisplayName().toLowerCase());
 
         return root;
     }
@@ -103,7 +113,8 @@ public class ProfileFragment extends Fragment {
 
                 profileViewModel.setmFullName(userArr[1].trim() + " " + userArr[2].trim());
                 profileViewModel.setmUserName("@" + userArr[0].trim());
-                profileViewModel.setmTotalScore(userArr[5].trim());
+                profileViewModel.setmTotalScore(userArr[5].trim() + " lifetime points");
+
             }
         });
     }
@@ -196,7 +207,7 @@ public class ProfileFragment extends Fragment {
                 }
             }
         }
-        profileViewModel.setmAppUsage(stringBuilder.toString());
+        profileViewModel.setmAppUsage("240 points till Level 9");
 
         RequestBody formBody = new FormBody.Builder().add("userData", stringBuilder.toString()).build();
         Request request = new Request.Builder().url("http://10.0.2.2:5000/updateDailyScore/"+user).post(formBody).build();

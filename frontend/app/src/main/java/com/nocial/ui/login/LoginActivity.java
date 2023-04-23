@@ -129,7 +129,9 @@ public class LoginActivity extends AppCompatActivity {
     private void updateUiWithUser(LoggedInUserView model) {
         // TODO : initiate successful logged in experience
 
-        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        Intent startIntent = new Intent(getApplicationContext(), MainActivity.class);
+
+        startActivity(startIntent);
         finish();
     }
 

@@ -28,6 +28,10 @@ public class LoginRepository {
         return instance;
     }
 
+    public static LoginRepository getInstance() {
+        return instance;
+    }
+
     public boolean isLoggedIn() {
         return user != null;
     }
@@ -39,8 +43,13 @@ public class LoginRepository {
 
     private void setLoggedInUser(LoggedInUser user) {
         this.user = user;
+        instance = this;
         // If user credentials will be cached in local storage, it is recommended it be encrypted
         // @see https://developer.android.com/training/articles/keystore
+    }
+
+    public LoggedInUser getUser() {
+        return this.user;
     }
 
     public Result<LoggedInUser> login(String username, String password) {
