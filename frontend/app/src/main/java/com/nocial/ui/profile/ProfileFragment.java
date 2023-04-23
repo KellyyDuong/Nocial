@@ -199,7 +199,7 @@ public class ProfileFragment extends Fragment {
                 }
             }
         }
-        profileViewModel.setmAppUsage(stringBuilder.toString());
+        profileViewModel.setmAppUsage("240 points till Level 9");
 
         RequestBody formBody = new FormBody.Builder().add("userData", stringBuilder.toString()).build();
         Request request = new Request.Builder().url("http://10.0.2.2:5000/updateDailyScore/"+user).post(formBody).build();
