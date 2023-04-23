@@ -106,11 +106,22 @@ def updateDailyScore(userName):
     connection = connect()
     cursor = connection.cursor()
 
+    # get prev dailyScore
+    cursor.execute(f"SELECT dailyScore FROM users WHERE userName = '{userName}'")
+    prevDailyScore = int((cursor.fetchone())[0])
+
+    # get new dailyScore
     txt = request.form["userData"] # form sent from frontend should have name "userData"
     dailyScore = parseTotalTime(txt)
     dailyScore = calculateScore(dailyScore)
 
+    # get difference to add to totalScore
+    difference = dailyScore - prevDailyScore
+
+    cursor.execute(f"SELECT totalScore FROM users WHERE userName = '{userName}'")
+    totalScore = int((cursor.fetchone())[0])
     cursor.execute(f"UPDATE users SET dailyScore = '{dailyScore}' WHERE userName = '{userName}'")
+    cursor.execute(f"UPDATE users SET totalScore = '{totalScore + difference}' WHERE userName = '{userName}'")
     connection.commit()
 
     cursor.close()
