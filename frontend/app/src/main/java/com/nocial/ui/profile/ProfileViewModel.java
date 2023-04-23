@@ -37,5 +37,5 @@ public class ProfileViewModel extends ViewModel {
     public void setmUserName(String text) { mUserName.postValue(text);}
     public void setmFullName(String text) { mFullName.postValue(text);}
     public void setmAppUsage(String text) { mAppUsage.postValue(text);}
-    public void setProgressBar(String text) { progressBar.postValue(text);}
+//    public void setProgressBar(String text) { progressBar.postValue(text);}
 }
