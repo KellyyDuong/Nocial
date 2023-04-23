@@ -1,0 +1,78 @@
+<!--<layer-list xmlns:android="http://schemas.android.com/apk/res/android">-->
+<!--    <item android:id="@android:id/background">-->
+<!--        <shape android:shape="rectangle">-->
+<!--            <corners android:radius="10dp" />-->
+<!--            <solid android:color="#00AFB9" />-->
+<!--        </shape>-->
+<!--    </item>-->
+<!--    <item android:id="@android:id/progress">-->
+<!--        <shape android:shape="rectangle">-->
+<!--            <corners android:radius="10dp" />-->
+<!--            <solid android:color="#FFFFFF" />-->
+<!--            <padding android:left="0dp" android:top="0dp" android:right="50dp" android:bottom="0dp" />-->
+<!--        </shape>-->
+<!--    </item>-->
+<!--</layer-list>-->
+<!--<layer-list xmlns:android="http://schemas.android.com/apk/res/android">-->
+<!--    <item android:id="@android:id/background">-->
+<!--        <shape android:shape="rectangle">-->
+<!--            <corners android:radius="20dp" />-->
+<!--            <solid android:color="#E6E6E6" />-->
+<!--        </shape>-->
+<!--    </item>-->
+<!--    <item android:id="@android:id/progress">-->
+<!--        <clip>-->
+<!--            <shape android:shape="rectangle">-->
+<!--                <corners android:radius="20dp" />-->
+<!--                <solid android:color="#00FF00" />-->
+<!--            </shape>-->
+<!--        </clip>-->
+<!--    </item>-->
+<!--</layer-list>-->
+<!--<layer-list xmlns:android="http://schemas.android.com/apk/res/android">-->
+<!--    <item android:id="@android:id/background">-->
+<!--        <shape>-->
+<!--            <corners android:radius="40dp" />-->
+<!--            <solid android:color="#9C27B0" />-->
+<!--        </shape>-->
+<!--    </item>-->
+
+<!--    <item android:id="@android:id/progress">-->
+<!--        <clip>-->
+<!--            <inset-->
+<!--                android:insetLeft="4dp"-->
+<!--                android:insetTop="4dp"-->
+<!--                android:insetRight="4dp"-->
+<!--                android:insetBottom="4dp">-->
+<!--                <shape>-->
+<!--                    <corners android:radius="40dp" />-->
+<!--                    <solid android:color="#FFFFFF" />-->
+<!--                </shape>-->
+<!--            </inset>-->
+<!--            <clip>-->
+<!--                <shape>-->
+<!--                    <corners android:radius="40dp" />-->
+<!--                    <solid android:color="#00AFB9" />-->
+<!--                </shape>-->
+<!--            </clip>-->
+<!--        </clip>-->
+<!--    </item>-->
+<!--</layer-list>-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background -->
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <corners android:radius="20dp" />
+            <solid android:color="#E6E6E6" />
+        </shape>
+    </item>
+    <!-- Progress -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape android:shape="rectangle">
+                <corners android:radius="20dp" />
+                <solid android:color="#E289F2" />
+            </shape>
+        </clip>
+    </item>
+</layer-list>

@@ -4,11 +4,13 @@ import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.Intent;
 
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -34,6 +36,8 @@ import okhttp3.Response;
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
 
+import org.w3c.dom.Text;
+
 public class ProfileFragment extends Fragment {
 
     private TextView mFullName;
@@ -52,26 +56,27 @@ public class ProfileFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_profile, container, false);
         profileViewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
 
-//        user = "dtsela"; // example userName --> get this user's data
-//        mFullName = root.findViewById(R.id.full_name);
-//        mUserName = root.findViewById(R.id.user_name);
-//        mTotalScore = root.findViewById(R.id.total_score);
-//        mAppUsage = root.findViewById(R.id.app_usage);
-//
-//        profileViewModel.getFullNameLiveData().observe(getViewLifecycleOwner(), s -> mFullName.setText(s));
-//        profileViewModel.getUserNameLiveData().observe(getViewLifecycleOwner(), s -> mUserName.setText(s));
-//        profileViewModel.getTotalScoreLiveData().observe(getViewLifecycleOwner(), s -> mTotalScore.setText(s));
-//        profileViewModel.getAppUsageLiveData().observe(getViewLifecycleOwner(), s -> mAppUsage.setText(s));
-//
-//        Context context = requireContext();
-//        if (!checkUsageStatsPermission(context)) {
-//            requestUsageStatsPermission();
-//        } else {
-//            showAppUsage();
-//        }
-//
-//        testGetRequest();
-        //getUserData();
+        user = "ashleychen888"; // example userName --> get this user's data
+        mFullName = root.findViewById(R.id.full_name);
+        mUserName = root.findViewById(R.id.user_name);
+        mTotalScore = root.findViewById(R.id.total_score);
+        mAppUsage = root.findViewById(R.id.app_usage);
+        ProgressBar progressBar = root.findViewById(R.id.progressBarWed);
+
+        profileViewModel.getFullNameLiveData().observe(getViewLifecycleOwner(), s -> mFullName.setText(s));
+        profileViewModel.getUserNameLiveData().observe(getViewLifecycleOwner(), s -> mUserName.setText(s));
+        profileViewModel.getTotalScoreLiveData().observe(getViewLifecycleOwner(), s -> mTotalScore.setText(s));
+        profileViewModel.getAppUsageLiveData().observe(getViewLifecycleOwner(), s -> mAppUsage.setText(s));
+
+        Context context = requireContext();
+        if (!checkUsageStatsPermission(context)) {
+            requestUsageStatsPermission();
+        } else {
+            showAppUsage();
+        }
+
+        //testGetRequest();
+        getUserData();
 
         TextView displayName = root.findViewById(R.id.displayNameLabel);
         TextView userName = root.findViewById(R.id.userNameLabel);
@@ -108,7 +113,8 @@ public class ProfileFragment extends Fragment {
 
                 profileViewModel.setmFullName(userArr[1].trim() + " " + userArr[2].trim());
                 profileViewModel.setmUserName("@" + userArr[0].trim());
-                profileViewModel.setmTotalScore(userArr[5].trim());
+                profileViewModel.setmTotalScore(userArr[5].trim() + " lifetime points");
+
             }
         });
     }
