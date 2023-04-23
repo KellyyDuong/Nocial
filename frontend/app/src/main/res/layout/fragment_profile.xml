@@ -80,11 +80,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
+        android:background="@drawable/rounded_progress_bar"
         android:progress="50"
         android:progressBackgroundTint="#FFFFFF"
         android:progressBackgroundTintMode="add"
         android:progressTint="#00AFB9"
-        android:scaleY="5"
+        android:progressDrawable="@drawable/rounded_progress_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/profilePicture"
         app:layout_constraintTop_toBottomOf="@+id/pointLabel" />
@@ -232,14 +233,13 @@
                 android:layout_width="0dp"
                 android:layout_height="70dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="100dp"
                 android:background="@drawable/leaderboard_box"
                 android:paddingLeft="70dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="30dp"
+                android:scaleX="1"
                 android:text="Reddit"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -281,6 +281,119 @@
                 android:text="1h 23m"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/redditLabel" />
+
+            <TextView
+                android:id="@+id/facebookLabel"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="100dp"
+                android:background="@drawable/leaderboard_box"
+                android:paddingLeft="70dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="30dp"
+                android:text="FaceBook"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/redditLabel" />
+
+            <ImageView
+                android:id="@+id/facebookIcon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:src="@drawable/facebook"
+                app:layout_constraintStart_toStartOf="@+id/facebookLabel"
+                app:layout_constraintTop_toTopOf="@+id/facebookLabel" />
+
+            <ProgressBar
+                android:id="@+id/facebookProgress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="8dp"
+                android:progress="20"
+                android:progressBackgroundTint="#FFFFFF"
+                android:progressBackgroundTintMode="add"
+                android:progressTint="#FF9800"
+                android:scaleY="3"
+                app:layout_constraintBottom_toBottomOf="@+id/facebookIcon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/facebookIcon" />
+
+            <TextView
+                android:id="@+id/facebookTimeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="47m"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/facebookLabel" />
+
+            <TextView
+                android:id="@+id/twitterLabel"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/leaderboard_box"
+                android:paddingLeft="70dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="30dp"
+                android:text="Twitter"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/facebookLabel" />
+
+            <ImageView
+                android:id="@+id/twitterIcon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:src="@drawable/twitter"
+                app:layout_constraintStart_toStartOf="@+id/twitterLabel"
+                app:layout_constraintTop_toTopOf="@+id/twitterLabel" />
+
+            <ProgressBar
+                android:id="@+id/twitterProgress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="8dp"
+                android:progress="10"
+                android:progressBackgroundTint="#FFFFFF"
+                android:progressBackgroundTintMode="add"
+                android:progressTint="#4CAF50"
+                android:scaleY="3"
+                app:layout_constraintBottom_toBottomOf="@+id/twitterIcon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/twitterIcon" />
+
+            <TextView
+                android:id="@+id/twitterTimeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="21m"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/twitterLabel" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
