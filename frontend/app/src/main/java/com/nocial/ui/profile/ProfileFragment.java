@@ -57,16 +57,16 @@ public class ProfileFragment extends Fragment {
         profileViewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
 
         user = "ashleychen888"; // example userName --> get this user's data
-        mFullName = root.findViewById(R.id.full_name);
-        mUserName = root.findViewById(R.id.user_name);
-        mTotalScore = root.findViewById(R.id.total_score);
-        mAppUsage = root.findViewById(R.id.app_usage);
-        ProgressBar progressBar = root.findViewById(R.id.progressBarWed);
+        mFullName = root.findViewById(R.id.displayNameLabel);
+        mUserName = root.findViewById(R.id.userNameLabel);
+        mTotalScore = root.findViewById(R.id.pointLabel);
+        mAppUsage = root.findViewById(R.id.instagramTimeLabel);
+        ProgressBar progressBar = root.findViewById(R.id.pointProgress);
 
         profileViewModel.getFullNameLiveData().observe(getViewLifecycleOwner(), s -> mFullName.setText(s));
         profileViewModel.getUserNameLiveData().observe(getViewLifecycleOwner(), s -> mUserName.setText(s));
         profileViewModel.getTotalScoreLiveData().observe(getViewLifecycleOwner(), s -> mTotalScore.setText(s));
-        profileViewModel.getAppUsageLiveData().observe(getViewLifecycleOwner(), s -> mAppUsage.setText(s));
+//        profileViewModel.getAppUsageLiveData().observe(getViewLifecycleOwner(), s -> mAppUsage.setText(s));
 
         Context context = requireContext();
         if (!checkUsageStatsPermission(context)) {
