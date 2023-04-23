@@ -63,7 +63,10 @@ public class GroupPlayerListAdapter extends RecyclerView.Adapter<GroupPlayerList
         holder.smilingReactions.setText(String.valueOf(smilingReactions));
         holder.nauseatedReactions.setText(String.valueOf(nauseatedReactions));
 
-        holder.progressBarTime.setText(String.valueOf(userScreentime.get(position)));
+        int secs = userScreentime.get(position);
+        String timeString = (secs / 60) + ":" + ((secs % 60) < 10 ? "0" + (secs % 60) : (secs % 60));
+
+        holder.progressBarTime.setText(timeString);
         holder.progressBar.setProgress((int) ((userScreentime.get(position) / 60.0) * 100));
         Resources resources = context.getResources();
         holder.profilePic.setImageResource(resources.getIdentifier(profilePictures.get(position), "drawable", context.getPackageName()));

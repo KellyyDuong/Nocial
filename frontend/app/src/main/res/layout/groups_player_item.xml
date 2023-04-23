@@ -143,7 +143,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="0:00"
-                android:textSize="10sp"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/progressBar"
                 app:layout_constraintStart_toStartOf="@+id/progressBar"
                 app:layout_constraintTop_toTopOf="@+id/progressBar" />
