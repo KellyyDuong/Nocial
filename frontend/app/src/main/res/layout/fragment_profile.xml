@@ -104,8 +104,8 @@
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/pointProgress"
-        app:layout_constraintStart_toStartOf="@+id/pointProgress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/weeklyStatsLabel">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -113,10 +113,14 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/weeklyStats"
                 android:layout_width="0dp"
                 android:layout_height="265dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:elevation="5dp"
                 android:src="@drawable/profile_chart"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -124,8 +128,11 @@
                 android:id="@+id/instagramLabel"
                 android:layout_width="0dp"
                 android:layout_height="70dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
                 android:background="@drawable/leaderboard_box"
+                android:elevation="5dp"
                 android:paddingLeft="70dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="30dp"
@@ -134,7 +141,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+                app:layout_constraintTop_toBottomOf="@+id/weeklyStats" />
 
             <ImageView
                 android:id="@+id/instagramIcon"
@@ -142,6 +149,7 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
+                android:elevation="5dp"
                 android:src="@drawable/instagram"
                 app:layout_constraintStart_toStartOf="@+id/instagramLabel"
                 app:layout_constraintTop_toTopOf="@+id/instagramLabel" />
@@ -154,13 +162,14 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="8dp"
+                android:elevation="5dp"
                 android:progress="100"
                 android:progressBackgroundTint="#FFFFFF"
                 android:progressBackgroundTintMode="add"
                 android:progressTint="#E91E63"
                 android:scaleY="3"
                 app:layout_constraintBottom_toBottomOf="@+id/instagramIcon"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/instagramLabel"
                 app:layout_constraintStart_toEndOf="@+id/instagramIcon" />
 
             <TextView
@@ -169,16 +178,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
+                android:elevation="5dp"
                 android:text="3h 15m"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/instagramLabel"
                 app:layout_constraintTop_toTopOf="@+id/instagramLabel" />
 
             <TextView
                 android:id="@+id/tiktokLabel"
                 android:layout_width="0dp"
                 android:layout_height="70dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
                 android:background="@drawable/leaderboard_box"
+                android:elevation="5dp"
                 android:paddingLeft="70dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="30dp"
@@ -195,6 +208,7 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
+                android:elevation="5dp"
                 android:scaleX="1.4"
                 android:scaleY="1.4"
                 android:src="@drawable/tiktok"
@@ -209,13 +223,14 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="8dp"
+                android:elevation="5dp"
                 android:progress="80"
                 android:progressBackgroundTint="#FFFFFF"
                 android:progressBackgroundTintMode="add"
                 android:progressTint="#E91E63"
                 android:scaleY="3"
                 app:layout_constraintBottom_toBottomOf="@+id/tiktokIcon"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tiktokLabel"
                 app:layout_constraintStart_toEndOf="@+id/tiktokIcon" />
 
             <TextView
@@ -224,16 +239,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
+                android:elevation="5dp"
                 android:text="2h 38m"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tiktokLabel"
                 app:layout_constraintTop_toTopOf="@+id/tiktokLabel" />
 
             <TextView
                 android:id="@+id/redditLabel"
                 android:layout_width="0dp"
                 android:layout_height="70dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
                 android:background="@drawable/leaderboard_box"
+                android:elevation="5dp"
                 android:paddingLeft="70dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="30dp"
@@ -251,6 +270,7 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
+                android:elevation="5dp"
                 android:src="@drawable/reddit"
                 app:layout_constraintStart_toStartOf="@+id/redditLabel"
                 app:layout_constraintTop_toTopOf="@+id/redditLabel" />
@@ -263,13 +283,14 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="8dp"
+                android:elevation="5dp"
                 android:progress="40"
                 android:progressBackgroundTint="#FFFFFF"
                 android:progressBackgroundTintMode="add"
                 android:progressTint="#FF9800"
                 android:scaleY="3"
                 app:layout_constraintBottom_toBottomOf="@+id/redditIcon"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/redditLabel"
                 app:layout_constraintStart_toEndOf="@+id/redditIcon" />
 
             <TextView
@@ -278,23 +299,25 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
+                android:elevation="5dp"
                 android:text="1h 23m"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/redditLabel"
                 app:layout_constraintTop_toTopOf="@+id/redditLabel" />
 
             <TextView
                 android:id="@+id/facebookLabel"
                 android:layout_width="0dp"
                 android:layout_height="70dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="100dp"
+                android:layout_marginEnd="24dp"
                 android:background="@drawable/leaderboard_box"
+                android:elevation="5dp"
                 android:paddingLeft="70dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="30dp"
                 android:text="FaceBook"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -306,6 +329,7 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
+                android:elevation="5dp"
                 android:scaleX="1.5"
                 android:scaleY="1.5"
                 android:src="@drawable/facebook"
@@ -320,13 +344,14 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="8dp"
+                android:elevation="5dp"
                 android:progress="20"
                 android:progressBackgroundTint="#FFFFFF"
                 android:progressBackgroundTintMode="add"
                 android:progressTint="#FF9800"
                 android:scaleY="3"
                 app:layout_constraintBottom_toBottomOf="@+id/facebookIcon"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/facebookLabel"
                 app:layout_constraintStart_toEndOf="@+id/facebookIcon" />
 
             <TextView
@@ -335,16 +360,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
+                android:elevation="5dp"
                 android:text="47m"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/facebookLabel"
                 app:layout_constraintTop_toTopOf="@+id/facebookLabel" />
 
             <TextView
                 android:id="@+id/twitterLabel"
                 android:layout_width="0dp"
                 android:layout_height="70dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="100dp"
                 android:background="@drawable/leaderboard_box"
+                android:elevation="5dp"
                 android:paddingLeft="70dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="30dp"
@@ -362,6 +392,7 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
+                android:elevation="5dp"
                 android:scaleX="1.5"
                 android:scaleY="1.5"
                 android:src="@drawable/twitter"
@@ -374,15 +405,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
                 android:layout_marginBottom="8dp"
+                android:elevation="5dp"
                 android:progress="10"
                 android:progressBackgroundTint="#FFFFFF"
                 android:progressBackgroundTintMode="add"
                 android:progressTint="#4CAF50"
                 android:scaleY="3"
                 app:layout_constraintBottom_toBottomOf="@+id/twitterIcon"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/twitterLabel"
                 app:layout_constraintStart_toEndOf="@+id/twitterIcon" />
 
             <TextView
@@ -391,8 +422,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
+                android:elevation="5dp"
                 android:text="21m"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/twitterLabel"
                 app:layout_constraintTop_toTopOf="@+id/twitterLabel" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
