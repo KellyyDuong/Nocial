@@ -27,9 +27,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="75dp"
-                android:layout_marginTop="16dp"
                 android:src="@drawable/greenprofile"
                 android:translationZ="90dp"
+                app:layout_constraintBottom_toTopOf="@+id/comment_button"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,31 +48,37 @@
                 android:id="@+id/player_place"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="20dp"
                 android:text="1st"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@+id/profilePicBG" />
 
             <TextView
                 android:id="@+id/player_name"
-                android:layout_width="50dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
+                android:layout_marginEnd="5dp"
+                android:autoSizeMaxTextSize="14sp"
+                android:autoSizeMinTextSize="7sp"
+                android:autoSizeStepGranularity="1px"
                 android:autoSizeTextType="uniform"
-                android:autoText="true"
-                android:singleLine="true"
-                android:text="Username"
-                app:layout_constraintStart_toStartOf="parent"
+                android:maxLines="1"
+                android:singleLine="false"
+                android:text="je"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toStartOf="@+id/profilePicBG"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/player_place"
                 app:layout_constraintTop_toBottomOf="@+id/player_place" />
 
             <Button
                 android:id="@+id/comment_button"
                 android:layout_width="0dp"
                 android:layout_height="35dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginBottom="8dp"
                 android:drawablePadding="10dp"
                 android:includeFontPadding="false"
@@ -99,39 +105,37 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
                 android:progress="0"
                 android:progressBackgroundTint="#FFFFFF"
                 android:progressBackgroundTintMode="add"
                 android:progressTint="#00AFB9"
                 android:scaleY="5"
-                app:layout_constraintBottom_toTopOf="@+id/comment_button"
-                app:layout_constraintEnd_toStartOf="@+id/react"
+                app:layout_constraintBottom_toBottomOf="@+id/profilePicBG"
+                app:layout_constraintEnd_toStartOf="@+id/reactionEmojiSmile"
                 app:layout_constraintStart_toEndOf="@+id/profilePicBG"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/react"
-                android:layout_width="35dp"
-                android:layout_height="40dp"
-                android:layout_marginEnd="24dp"
-                android:text="React"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@+id/comment_button"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@+id/profilePicBG" />
 
             <TextView
-                android:id="@+id/reactionCount"
+                android:id="@+id/reactionSmileCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="24dp"
                 android:text="0"
                 android:textAlignment="center"
-                android:textSize="8sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/react"
-                app:layout_constraintTop_toBottomOf="@+id/react" />
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/reactionEmojiSmile"
+                app:layout_constraintStart_toStartOf="@+id/reactionEmojiSmile"
+                app:layout_constraintTop_toBottomOf="@+id/reactionEmojiSmile" />
+
+            <TextView
+                android:id="@+id/reactionNauseatedCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/reactionEmojiNauseated"
+                app:layout_constraintStart_toStartOf="@+id/reactionEmojiNauseated"
+                app:layout_constraintTop_toBottomOf="@+id/reactionEmojiNauseated" />
 
             <TextView
                 android:id="@+id/progressBarTime"
@@ -143,6 +147,27 @@
                 app:layout_constraintBottom_toBottomOf="@+id/progressBar"
                 app:layout_constraintStart_toStartOf="@+id/progressBar"
                 app:layout_constraintTop_toTopOf="@+id/progressBar" />
+
+            <ImageView
+                android:id="@+id/reactionEmojiSmile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/progressBar"
+                app:layout_constraintEnd_toStartOf="@+id/reactionEmojiNauseated"
+                app:layout_constraintStart_toEndOf="@+id/progressBar"
+                app:layout_constraintTop_toTopOf="@+id/progressBar"
+                app:srcCompat="@drawable/ic_reaction_emoji_grinning_squinting" />
+
+            <ImageView
+                android:id="@+id/reactionEmojiNauseated"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/reactionEmojiSmile"
+                app:srcCompat="@drawable/ic_reaction_emoji_nauseated" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
