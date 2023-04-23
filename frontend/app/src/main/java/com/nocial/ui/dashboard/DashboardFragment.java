@@ -42,12 +42,12 @@ public class DashboardFragment extends Fragment {
         ArrayList<String> groupNames = new ArrayList<>();
         groupNames.add("Mi Familia");
         groupNames.add("Amigos");
-        groupNames.add("Homegirls");
+//        groupNames.add("Homegirls");
 
         ArrayList<String> userPlaces = new ArrayList<>();
         userPlaces.add("2nd");
         userPlaces.add("1st");
-        userPlaces.add("4th");
+//        userPlaces.add("4th");
 
         ArrayList<ArrayList<String>> profilePictures = new ArrayList<>();
 

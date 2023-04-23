@@ -15,7 +15,7 @@
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/cat"
+        app:srcCompat="@drawable/penguinpurple"
         tools:src="@drawable/penguin" />
 
     <TextView
