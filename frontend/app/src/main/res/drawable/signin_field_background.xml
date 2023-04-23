@@ -5,5 +5,5 @@
     android:shadowDy="10"
     android:shadowRadius="10">
     <corners android:radius="30dp" />
-    <solid android:color="#F6F6F6" />
+    <solid android:color="#F0F0F0" />
 </shape>
