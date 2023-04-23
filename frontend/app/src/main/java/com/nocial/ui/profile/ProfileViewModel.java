@@ -12,12 +12,14 @@ public class ProfileViewModel extends ViewModel {
     private MutableLiveData<String> mFullName;
     private MutableLiveData<String> mTotalScore;
     private MutableLiveData<String> mAppUsage;
+    private MutableLiveData<String> progressBar;
 
     public ProfileViewModel() {
         mFullName = new MutableLiveData<>();
         mUserName = new MutableLiveData<>();
         mTotalScore = new MutableLiveData<>();
         mAppUsage = new MutableLiveData<>();
+        progressBar = new MutableLiveData<>();
     }
 
     public MutableLiveData<String> getUserNameLiveData() { return mUserName; }
@@ -35,4 +37,5 @@ public class ProfileViewModel extends ViewModel {
     public void setmUserName(String text) { mUserName.postValue(text);}
     public void setmFullName(String text) { mFullName.postValue(text);}
     public void setmAppUsage(String text) { mAppUsage.postValue(text);}
+//    public void setProgressBar(String text) { progressBar.postValue(text);}
 }

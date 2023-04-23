@@ -10,6 +10,7 @@ import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -53,11 +54,12 @@ public class ProfileFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_profile, container, false);
         profileViewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
 
-        user = "dtsela"; // example userName --> get this user's data
+        user = "ashleychen888"; // example userName --> get this user's data
         mFullName = root.findViewById(R.id.full_name);
         mUserName = root.findViewById(R.id.user_name);
         mTotalScore = root.findViewById(R.id.total_score);
         mAppUsage = root.findViewById(R.id.app_usage);
+        ProgressBar progressBar = root.findViewById(R.id.progressBarWed);
 
         profileViewModel.getFullNameLiveData().observe(getViewLifecycleOwner(), s -> mFullName.setText(s));
         profileViewModel.getUserNameLiveData().observe(getViewLifecycleOwner(), s -> mUserName.setText(s));
@@ -71,8 +73,8 @@ public class ProfileFragment extends Fragment {
             showAppUsage();
         }
 
-        testGetRequest();
-        //getUserData();
+        //testGetRequest();
+        getUserData();
 
         return root;
     }
@@ -103,7 +105,8 @@ public class ProfileFragment extends Fragment {
 
                 profileViewModel.setmFullName(userArr[1].trim() + " " + userArr[2].trim());
                 profileViewModel.setmUserName("@" + userArr[0].trim());
-                profileViewModel.setmTotalScore(userArr[5].trim());
+                profileViewModel.setmTotalScore(userArr[5].trim() + " lifetime points");
+
             }
         });
     }
