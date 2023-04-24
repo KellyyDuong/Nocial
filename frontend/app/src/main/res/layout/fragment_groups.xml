@@ -20,11 +20,11 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="142dp"
+        android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:text="Amigos"
+        android:text="Homegirls"
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />

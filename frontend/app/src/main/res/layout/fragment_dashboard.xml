@@ -73,12 +73,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/groups_recycler_view">
+        app:layout_constraintTop_toBottomOf="@+id/groups_recycler_view"
+        android:gravity="center">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="160dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:background="@drawable/rounded_corner_view_medorange"
             android:orientation="horizontal"
             android:padding="10dp">
@@ -92,21 +92,20 @@
                 android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="5dp"
                 android:text="Search for a group"
                 android:textAlignment="textStart"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 tools:layout_editor_absoluteX="188dp"
                 tools:layout_editor_absoluteY="60dp" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="160dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
-            android:layout_weight="1"
             android:background="@drawable/rounded_corner_view_medorange"
             android:orientation="horizontal"
             android:padding="10dp">
@@ -120,10 +119,10 @@
                 android:id="@+id/textView10"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="5dp"
                 android:text="Create a group"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 tools:layout_editor_absoluteX="188dp"
                 tools:layout_editor_absoluteY="60dp" />
 
