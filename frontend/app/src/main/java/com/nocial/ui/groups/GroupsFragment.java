@@ -36,6 +36,9 @@ public class GroupsFragment extends Fragment {
         userNames.add("Cow");
         userNames.add("Cat");
         userNames.add("Smiling Cat");
+        userNames.add("Cow");
+        userNames.add("Cat");
+        userNames.add("Smiling Cat");
 
         ArrayList<Integer> userScreenTime = new ArrayList<>();
         userScreenTime.add(15);
@@ -44,8 +47,14 @@ public class GroupsFragment extends Fragment {
         userScreenTime.add(60);
         userScreenTime.add(90);
         userScreenTime.add(180);
+        userScreenTime.add(60);
+        userScreenTime.add(90);
+        userScreenTime.add(180);
 
         ArrayList<Integer> reactions = new ArrayList<>();
+        reactions.add(202);
+        reactions.add(202);
+        reactions.add(202);
         reactions.add(202);
         reactions.add(202);
         reactions.add(202);
@@ -59,6 +68,9 @@ public class GroupsFragment extends Fragment {
         profilePictures.add("penguin");
         profilePictures.add("cow");
         profilePictures.add("cat");
+        profilePictures.add("smilecat");
+        profilePictures.add("cat");
+        profilePictures.add("dog");
         profilePictures.add("smilecat");
 
 
