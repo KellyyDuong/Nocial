@@ -24,8 +24,10 @@ public class GroupPlayerListAdapter extends RecyclerView.Adapter<GroupPlayerList
     ArrayList<Integer> userScreentime;
     ArrayList<Integer> reactions;
     Context context;
+    View.OnClickListener onClickListener;
 
-    public GroupPlayerListAdapter(@NonNull Context context, ArrayList<String> userNames, ArrayList<Integer> userScreenTime, ArrayList<Integer> reactions, ArrayList<String> profilePictures) {
+
+    public GroupPlayerListAdapter(@NonNull Context context, ArrayList<String> userNames, ArrayList<Integer> userScreenTime, ArrayList<Integer> reactions, ArrayList<String> profilePictures, View.OnClickListener onClickListener) {
         super();
 
         this.context = context;
@@ -33,6 +35,7 @@ public class GroupPlayerListAdapter extends RecyclerView.Adapter<GroupPlayerList
         this.userScreentime = userScreenTime;
         this.reactions = reactions;
         this.profilePictures = profilePictures;
+        this.onClickListener = onClickListener;
     }
 
     @NonNull
@@ -40,6 +43,8 @@ public class GroupPlayerListAdapter extends RecyclerView.Adapter<GroupPlayerList
     public GroupPlayerListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.groups_player_item, parent, false);
+
+        view.setOnClickListener(onClickListener);
 
         return new ViewHolder(view);
     }

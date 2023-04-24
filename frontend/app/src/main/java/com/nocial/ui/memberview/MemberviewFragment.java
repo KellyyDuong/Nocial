@@ -55,17 +55,8 @@ public class MemberviewFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_groups, container, false);
+        View root = inflater.inflate(R.layout.fragment_memberview, container, false);
 
-
-        root.findViewById(R.id.imageView2).setOnClickListener(v -> {
-            FragmentManager fragmentManager = getParentFragmentManager();
-            fragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, CustomizeFragment.class, null)
-                    .setReorderingAllowed(true)
-                    .addToBackStack("CustomizeFragment") // name can be null
-                    .commit();
-        });
 
         return root;
     }

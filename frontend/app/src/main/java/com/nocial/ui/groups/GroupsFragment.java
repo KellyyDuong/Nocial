@@ -16,6 +16,7 @@ import com.nocial.R;
 import com.nocial.data.LoginRepository;
 import com.nocial.databinding.FragmentGroupsBinding;
 import com.nocial.ui.customize.CustomizeFragment;
+import com.nocial.ui.memberview.MemberviewFragment;
 
 import java.util.ArrayList;
 
@@ -75,21 +76,22 @@ public class GroupsFragment extends Fragment {
         profilePictures.add("dog");
         profilePictures.add("smilecat");
 
+        View.OnClickListener playerClick = v -> {
+
+            System.out.println("CLICK");
+            FragmentManager fragmentManager = getParentFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, MemberviewFragment.class, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("MemberviewFragment") // name can be null
+                    .commit();
+        };
 
         RecyclerView playerRecyclerView = root.findViewById(R.id.playerRecyclerView);
-        GroupPlayerListAdapter adapter = new GroupPlayerListAdapter(requireActivity(), userNames, userScreenTime, reactions, profilePictures);
+        GroupPlayerListAdapter adapter = new GroupPlayerListAdapter(requireActivity(), userNames, userScreenTime, reactions, profilePictures, playerClick);
 
         playerRecyclerView.setAdapter(adapter);
         playerRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
-
-        root.findViewById(R.id.editImage).setOnClickListener(v -> {
-            FragmentManager fragmentManager = getParentFragmentManager();
-            fragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, CustomizeFragment.class, null)
-                    .setReorderingAllowed(true)
-                    .addToBackStack("CustomizeFragment") // name can be null
-                    .commit();
-        });
 
         return root;
     }
