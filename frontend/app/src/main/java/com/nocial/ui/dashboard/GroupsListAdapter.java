@@ -75,7 +75,7 @@ public class GroupsListAdapter extends RecyclerView.Adapter<GroupsListAdapter.Vi
             groupName = itemView.findViewById(R.id.group_name);
             userPlace = itemView.findViewById(R.id.user_place);
             firstUserImage = itemView.findViewById(R.id.first_user_image);
-            secondUserImage = itemView.findViewById(R.id.second_user_place);
+            secondUserImage = itemView.findViewById(R.id.second_user_image);
             thirdUserImage = itemView.findViewById(R.id.third_user_image);
         }
     }
