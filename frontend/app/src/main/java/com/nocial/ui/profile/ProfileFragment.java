@@ -64,8 +64,6 @@ public class ProfileFragment extends Fragment {
         mUserName = root.findViewById(R.id.userNameLabel);
         mTotalScore = root.findViewById(R.id.pointLabel);
         mAppUsage = root.findViewById(R.id.instagramTimeLabel);
-        TextView mHey = root.findViewById(R.id.app_usage);
-        mHey.setText("240 points till Level 9");
         ProgressBar progressBar = root.findViewById(R.id.pointProgress);
 
         profileViewModel.getFullNameLiveData().observe(getViewLifecycleOwner(), s -> mFullName.setText(s));

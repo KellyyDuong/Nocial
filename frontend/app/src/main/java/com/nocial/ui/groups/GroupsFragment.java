@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.nocial.R;
 import com.nocial.data.LoginRepository;
 import com.nocial.databinding.FragmentGroupsBinding;
+import com.nocial.ui.customize.CustomizeFragment;
 
 import java.util.ArrayList;
 
@@ -79,6 +81,15 @@ public class GroupsFragment extends Fragment {
 
         playerRecyclerView.setAdapter(adapter);
         playerRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+
+        root.findViewById(R.id.editImage).setOnClickListener(v -> {
+            FragmentManager fragmentManager = getParentFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, CustomizeFragment.class, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("CustomizeFragment") // name can be null
+                    .commit();
+        });
 
         return root;
     }
