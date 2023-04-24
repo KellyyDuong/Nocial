@@ -160,28 +160,28 @@
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="15dp"
-                        android:src="@drawable/cat" />
+                        android:src="@drawable/pig" />
 
                     <ImageView
                         android:id="@+id/dbutton8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="15dp"
-                        android:src="@drawable/fox" />
+                        android:src="@drawable/hamster" />
 
                     <ImageView
                         android:id="@+id/ebutton8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="15dp"
-                        android:src="@drawable/dog" />
+                        android:src="@drawable/rabbit" />
 
                     <ImageView
                         android:id="@+id/fbutton8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="15dp"
-                        android:src="@drawable/smilecat" />
+                        android:src="@drawable/lion" />
 
                     <ImageView
                         android:id="@+id/gtest"
@@ -230,35 +230,35 @@
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="15dp"
-                        android:src="@drawable/penguin" />
+                        android:src="@drawable/tophat" />
 
                     <ImageView
                         android:id="@+id/sbutton8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="15dp"
-                        android:src="@drawable/cat" />
+                        android:src="@drawable/cap" />
 
                     <ImageView
                         android:id="@+id/tbutton8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="15dp"
-                        android:src="@drawable/fox" />
+                        android:src="@drawable/womanhat" />
 
                     <ImageView
                         android:id="@+id/ubutton8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="15dp"
-                        android:src="@drawable/dog" />
+                        android:src="@drawable/crown" />
 
                     <ImageView
                         android:id="@+id/vbutton8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="15dp"
-                        android:src="@drawable/smilecat" />
+                        android:src="@drawable/picnichat" />
 
                     <ImageView
                         android:id="@+id/wtest"
@@ -307,35 +307,35 @@
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="15dp"
-                        android:src="@drawable/penguin" />
+                        android:src="@drawable/tshirt" />
 
                     <ImageView
                         android:id="@+id/z2button8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="15dp"
-                        android:src="@drawable/cat" />
+                        android:src="@drawable/tanktop" />
 
                     <ImageView
                         android:id="@+id/z3button8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="15dp"
-                        android:src="@drawable/fox" />
+                        android:src="@drawable/buttonup" />
 
                     <ImageView
                         android:id="@+id/z4button8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="15dp"
-                        android:src="@drawable/dog" />
+                        android:src="@drawable/blouse" />
 
                     <ImageView
                         android:id="@+id/z5button8"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="15dp"
-                        android:src="@drawable/smilecat" />
+                        android:src="@drawable/dress" />
 
                     <ImageView
                         android:id="@+id/ztest"
